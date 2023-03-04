@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="projectUD5" />
+        <module name="proyecto-ud5" />
       </profile>
     </annotationProcessing>
   </component>

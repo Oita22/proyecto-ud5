@@ -26,6 +26,9 @@ public class User {
     // One To Many - Incrustado
     private List<Role> roles;
 
+    // One To Many - Por referencia
+    //private List<Activity> activities; -> Buscar como, relacionando los ObjectId imagino
+
     public static User createUser() {
         return new User(
                 new ObjectId(),
