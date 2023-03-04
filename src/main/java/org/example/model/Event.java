@@ -8,6 +8,8 @@ import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,14 +23,17 @@ public class Event {
     private boolean finished;
     private LocalDate date;
 
+    // Many To Many - Por referencia
+    private List<ObjectId> users;
+
     public static Event createEvent() {
         return new Event(
                 new ObjectId(),
                 "Tittle",
                 "Description",
                 false,
-                LocalDate.now()
-        );
+                LocalDate.now(),
+                new ArrayList<>());
     }
 
     public static Event createEventWithOutDescription() {
@@ -39,5 +44,9 @@ public class Event {
         event.setDate(LocalDate.now());
 
         return event;
+    }
+
+    public void addUser(ObjectId userId) {
+        this.users.add(userId);
     }
 }

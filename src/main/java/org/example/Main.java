@@ -1,5 +1,6 @@
 package org.example;
 
+import org.bson.types.ObjectId;
 import org.example.dao.ActivityDAO;
 import org.example.dao.EventDAO;
 import org.example.dao.UserDAO;
@@ -9,6 +10,7 @@ import org.example.model.User;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -22,31 +24,35 @@ public class Main {
     public static void main(String[] args) {
         random = new Random();
 
+        userDAO = new UserDAO();
+        eventDAO = new EventDAO();
+        activityDAO = new ActivityDAO();
+
         //testUser();
-        testActivity();
+        //testActivity();
         //testEvent();
+
+        //testUserActivities();
+        //testDateFormat();
+
+        //testUserEvents();
+        //testUserEvents2();
     }
 
     private static void testActivity() {
-        activityDAO = new ActivityDAO();
-
         testCreateActivity();
         //testUpdateActivity();
         //testDeleteActivity();
     }
 
     private static void testEvent() {
-        eventDAO = new EventDAO();
-
         testCreateEvent();
         //testUpdateEvent();
         //testDeleteEvent();
     }
 
     private static void testUser() {
-        userDAO = new UserDAO();
-
-        //testCreateSimpleUser();
+        testCreateSimpleUser();
         //testUpdateSimpleUser();
         //testDeleteSimpleUser();
     }
@@ -110,7 +116,7 @@ public class Main {
 
 
     private static void testCreateActivity() {
-        Activity activity = Activity.createActivity();
+        /*Activity activity = Activity.createActivity();
         Activity activity1 = Activity.createActivityWithOutDescription();
 
         // Create
@@ -119,7 +125,7 @@ public class Main {
 
         // Read
         System.out.println("READ: " + activityDAO.read(activity.getId()));
-        System.out.println("READ: " + activityDAO.read(activity1.getId()));
+        System.out.println("READ: " + activityDAO.read(activity1.getId()));*/
     }
     private static void testUpdateActivity() {
         Activity activity = activityDAO.findByTittle("Tittle");
@@ -195,5 +201,75 @@ public class Main {
 
         System.out.println("POST DELETE " + eventDAO.findByTittle("Tittle"));
         System.out.println("POST DELETE " + eventDAO.findByTittle("Title without Description and Time"));
+    }
+
+
+
+    private static void testUserActivities() {
+        userDAO.create(User.createUser());
+
+        User user = userDAO.findByUsername("Oita");
+        Activity activity = activityDAO.findByTittle("Tittle");
+        Activity activity1 = activityDAO.findByTittle("Title without Description and Time");
+
+        activity.setUser(user.getId());
+        activity1.setUser(user.getId());
+        user.addActivity(activity.getId());
+        user.addActivity(activity1.getId());
+
+        userDAO.update(user);
+        activityDAO.update(activity);
+        activityDAO.update(activity1);
+    }
+
+    private static void testDateFormat() {
+        User user = userDAO.findByUsername("Oita");
+
+        Activity activity = new Activity();
+        activity.setId(new ObjectId());
+        activity.setTittle("New Tittle");
+        activity.setDate(LocalDate.of(2023, 3, 4));
+        activity.setUser(user.getId());
+
+        user.addActivity(activity.getId());
+
+        userDAO.update(user);
+        activityDAO.create(activity);
+    }
+
+    private static void testUserEvents() {
+        User user = userDAO.findByUsername("Oita");
+        Event event = eventDAO.findByTittle("Tittle");
+        Event event1 = eventDAO.findByTittle("Title without Description and Time");
+
+        user.setEvents(new ArrayList<>());
+        user.addEvent(event.getId());
+        user.addEvent(event1.getId());
+        event.setUsers(new ArrayList<>());
+        event.addUser(user.getId());
+        event1.setUsers(new ArrayList<>());
+        event1.addUser(user.getId());
+
+        userDAO.update(user);
+        eventDAO.update(event);
+        eventDAO.update(event1);
+    }
+
+    private static void testUserEvents2() {
+        User user = User.createUser();
+        user.setUsername("Oita2");
+        user.setEmail("oita2@email.com");
+        user.getProfile().setName("Iago 2");
+        Event event = eventDAO.findByTittle("Tittle");
+        Event event1 = eventDAO.findByTittle("Title without Description and Time");
+
+        user.addEvent(event.getId());
+        user.addEvent(event1.getId());
+        event.addUser(user.getId());
+        event1.addUser(user.getId());
+
+        userDAO.create(user);
+        eventDAO.update(event);
+        eventDAO.update(event1);
     }
 }

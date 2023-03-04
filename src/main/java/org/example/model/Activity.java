@@ -23,13 +23,17 @@ public class Activity {
     private LocalDate date;
     private LocalTime time;
 
-    public static Activity createActivity() {
+    // Many To One - Por referencia
+    private ObjectId user;
+
+    public static Activity createActivity(User user) {
         return new Activity(new ObjectId(),
                 "Tittle",
                 "Description",
                 false,
                 LocalDate.now(),
-                LocalTime.now());
+                LocalTime.now(),
+                user.getId());
     }
 
     public static Activity createActivityWithOutDescription() {

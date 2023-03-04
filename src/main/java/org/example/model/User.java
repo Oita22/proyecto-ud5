@@ -7,6 +7,7 @@ import lombok.With;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +28,10 @@ public class User {
     private List<Role> roles;
 
     // One To Many - Por referencia
-    //private List<Activity> activities; -> Buscar como, relacionando los ObjectId imagino
+    private List<ObjectId> activities;
+
+    // Many To Many - Por referencia
+    private List<ObjectId> events;
 
     public static User createUser() {
         return new User(
@@ -35,6 +39,16 @@ public class User {
                 "Oita",
                 "oita@email.com",
                 new Profile(new ObjectId(), "Iago", "Oitavén", "123456789", 2000),
-                Arrays.asList(new Role(new ObjectId(), "ADMIN", 0), new Role(new ObjectId(), "MOD", 1)));
+                Arrays.asList(new Role(new ObjectId(), "ADMIN", 0), new Role(new ObjectId(), "MOD", 1)),
+                new ArrayList<>(),
+                new ArrayList<>());
+    }
+
+    public void addActivity(ObjectId activityId) {
+        this.activities.add(activityId);
+    }
+
+    public void addEvent(ObjectId eventId) {
+        this.events.add(eventId);
     }
 }
