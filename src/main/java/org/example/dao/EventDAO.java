@@ -2,10 +2,7 @@ package org.example.dao;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
@@ -16,7 +13,10 @@ import org.bson.types.ObjectId;
 import org.example.model.Activity;
 import org.example.model.Event;
 
+import java.time.LocalDate;
 import java.util.Arrays;
+
+import static com.mongodb.client.model.Filters.*;
 
 public class EventDAO {
     private static final String DB_NAME = "ud5db";
@@ -44,21 +44,19 @@ public class EventDAO {
         eventsCollection.insertOne(event);
     }
 
-    public Event findByTittle(String tittle) {return eventsCollection.find(Filters.eq("tittle", tittle)).first();}
-
     public Event read(ObjectId id) {
-        return eventsCollection.find(Filters.eq("_id", id)).first();
+        return eventsCollection.find(eq("_id", id)).first();
     }
 
     public void update(Event event) {
-        UpdateResult result = eventsCollection.replaceOne(Filters.eq("_id", event.getId()), event);
+        UpdateResult result = eventsCollection.replaceOne(eq("_id", event.getId()), event);
         if (result.getModifiedCount() == 0) {
             throw new RuntimeException("UPDATE: No event found with id " + event.getId());
         }
     }
 
     public void delete(ObjectId id) {
-        DeleteResult result = eventsCollection.deleteOne(Filters.eq("_id", id));
+        DeleteResult result = eventsCollection.deleteOne(eq("_id", id));
         if (result.getDeletedCount() == 0) {
             throw new RuntimeException("DELETE: No event found with id " + id);
         }
@@ -66,5 +64,55 @@ public class EventDAO {
 
     public void close() {
         mongoClient.close();
+    }
+
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de un Evento por su título
+     *
+     * @param tittle Título
+     * @return Event. El primero que encuentra que corresponde con el título pasado
+     */
+    public Event findByTittle(String tittle) {
+        return eventsCollection.find(eq("tittle", tittle)).first();
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de los Eventos de los que es propietario un Usuario
+     *
+     * @param userId ID del usuario
+     * @return FindIterable<Event> con el resultado de la consulta
+     */
+    public FindIterable<Event> findByOwnerId(ObjectId userId) {
+        return eventsCollection.find(eq("owner", userId));
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de los Eventos en los que está inscrito un usuario
+     *
+     * @param userId ID del usuario
+     * @return FindIterable<Event> con el resultado de la consulta
+     */
+    public FindIterable<Event> findByUserInEvents(ObjectId userId) {
+        return eventsCollection.find(in("users", userId));
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
+     *
+     * @param startDate Fecha del margen de inicio
+     * @param endDate Fecha de margen de finalización
+     * @return FindIterable<Event> con el resultado de la consulta
+     */
+    public FindIterable<Event> findByBetweenDateAndAtLeastOneUser(LocalDate startDate, LocalDate endDate) {
+        return eventsCollection.find(and(
+                gte("date", LocalDate.of(2023, 1, 1)),
+                lte("date", LocalDate.of(2024, 1, 1)),
+                exists("users", true))
+        );
     }
 }

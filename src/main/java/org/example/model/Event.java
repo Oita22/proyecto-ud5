@@ -52,6 +52,8 @@ public class Event {
     }
 
     public void addUser(ObjectId userId) {
+        if (users == null)
+            users = new ArrayList<>();
         this.users.add(userId);
     }
 }

@@ -5,15 +5,12 @@ import org.bson.types.ObjectId;
 import org.example.dao.ActivityDAO;
 import org.example.dao.EventDAO;
 import org.example.dao.UserDAO;
-import org.example.model.Activity;
-import org.example.model.Event;
-import org.example.model.User;
+import org.example.model.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -31,264 +28,38 @@ public class Main {
         eventDAO = new EventDAO();
         activityDAO = new ActivityDAO();
 
-        //testUser();
-        //testActivity();
-        //testEvent();
+        // Búsqueda de actividades por usuario y estado
+        FindIterable<Activity> activities = activityDAO.findByUserIdAndFinished(
+                userDAO.findByUsername("Oita").getId(),
+                true
+        );
 
-        //testUserActivities();
-        //testDateFormat();
-
-        //testUserEvents();
-        //testUserEvents2();
-
-        FindIterable<Activity> activities = activityDAO.findBetweenDates(LocalDate.of(2022, 1, 1), LocalDate.now());
         for (Activity activity : activities)
             System.out.println(activity);
 
-        FindIterable<Activity> activities1 = activityDAO.findBetweenHours(
-                LocalDateTime.of(2023, 3, 4, 11, 38),
-                LocalDateTime.of(2023, 3, 4, 11, 40));
-        for (Activity activity : activities1)
-            System.out.println(activity);
+        // Búsqueda de eventos por su propietario
+        FindIterable<Event> events = eventDAO.findByOwnerId(userDAO.findByUsername("User1629524261").getId());
+        for (Event event : events)
+            System.out.println(event);
 
-        FindIterable<Activity> activities2 = activityDAO.findByDate(LocalDate.of(2023, 3, 5));
-        for (Activity activity : activities2)
-            System.out.println(activity);
+        // Todos los usuarios
+        FindIterable<User> users = userDAO.findAll();
+        for (User user : users)
+            System.out.println(user);
 
-        testCreateEvent();
+        // Búsqueda de un usuario por su username y estado de actividad
+        System.out.println(userDAO.findByUsernameAndEnable("Oita", true));
+
+        // Búsqueda de los eventos en los que está inscrito un usuario
+        FindIterable<Event> events1 = eventDAO.findByUserInEvents(userDAO.findByUsername("Oita").getId());
+        for (Event event : events1)
+            System.out.println(event);
+
+        // Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
+        FindIterable<Event> events2 = eventDAO.findByBetweenDateAndAtLeastOneUser(LocalDate.of(2022, 1, 1), LocalDate.now());
+        for (Event event : events2)
+            System.out.println(event);
+
     }
 
-    private static void testActivity() {
-        testCreateActivity();
-        //testUpdateActivity();
-        //testDeleteActivity();
-    }
-
-    private static void testEvent() {
-        testCreateEvent();
-        //testUpdateEvent();
-        //testDeleteEvent();
-    }
-
-    private static void testUser() {
-        testCreateSimpleUser();
-        //testUpdateSimpleUser();
-        //testDeleteSimpleUser();
-    }
-
-    private static void testCreateSimpleUser() {
-        User user = User.createUser();
-
-        System.out.println("original: " + user);
-
-        // Create
-        userDAO.create(user);
-
-        // Read
-        System.out.println("CREATE: " + userDAO.read(user.getId()));
-
-        // Update > Si no se cambia nada cuando se actualiza, salta la excepción puesta en UserDAO
-        try {
-            userDAO.update(user);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Read
-        System.out.println(userDAO.read(user.getId()));
-
-        // Delete
-        /*try {
-            userDAO.delete(user.getId());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }*/
-
-        // Read
-        System.out.println(userDAO.read(user.getId()));
-    }
-
-    private static void testUpdateSimpleUser() {
-        User user = userDAO.findByUsername("Oita");
-        System.out.println(user);
-
-        System.out.println("READ: " + userDAO.read(user.getId()));
-
-
-        user.setEmail("oita" + random.nextInt() + "@email.com");
-        user.getProfile().setName(user.getProfile().getName() + String.valueOf(random.nextInt()));
-        user.getRoles().remove(1);
-
-        userDAO.update(user);
-
-        System.out.println("READ: " + userDAO.read(user.getId()));
-        System.out.println("FINDBYUSERNAME: " + userDAO.findByUsername(user.getUsername()));
-    }
-
-    private static void testDeleteSimpleUser() {
-        User user = userDAO.findByUsername("Oita");
-        System.out.println(user);
-
-        userDAO.delete(user.getId());
-    }
-
-
-
-    private static void testCreateActivity() {
-        /*Activity activity = Activity.createActivity();
-        Activity activity1 = Activity.createActivityWithOutDescription();
-
-        // Create
-        activityDAO.create(activity);
-        activityDAO.create(activity1);
-
-        // Read
-        System.out.println("READ: " + activityDAO.read(activity.getId()));
-        System.out.println("READ: " + activityDAO.read(activity1.getId()));*/
-    }
-    private static void testUpdateActivity() {
-        Activity activity = activityDAO.findByTittle("Tittle");
-        Activity activity1 = activityDAO.findByTittle("Title without Description and Time");
-
-        System.out.println("PRE UPDATE " + activity);
-        System.out.println("PRE UPDATE " + activity1);
-
-        activity.setDescription(activity.getDescription() + random.nextInt());
-        activity1.setDescription(activity1.getDescription() + random.nextInt());
-        activity1.setTime(LocalTime.now());
-
-        activityDAO.update(activity);
-        activityDAO.update(activity1);
-
-        System.out.println("POST UPDATE " + activityDAO.findByTittle("Tittle"));
-        System.out.println("POST UPDATE " + activityDAO.findByTittle("Title without Description and Time"));
-    }
-    private static void testDeleteActivity() {
-        Activity activity = activityDAO.findByTittle("Tittle");
-        Activity activity1 = activityDAO.findByTittle("Title without Description and Time");
-
-        System.out.println("TO DELETE " + activity);
-        System.out.println("TO DELETE " + activity1);
-
-        activityDAO.delete(activity.getId());
-        activityDAO.delete(activity1.getId());
-
-        System.out.println("POST DELETE " + activityDAO.findByTittle("Tittle"));
-        System.out.println("POST DELETE " + activityDAO.findByTittle("Title without Description and Time"));
-    }
-
-
-
-    private static void testCreateEvent() {
-        Event event = Event.createEvent(userDAO.findByUsername("Oita"));
-        Event event1 = Event.createEventWithOutDescription(userDAO.findByUsername("Oita"));
-
-        // Create
-        eventDAO.create(event);
-        eventDAO.create(event1);
-
-        // Read
-        System.out.println("READ: " + eventDAO.read(event.getId()));
-        System.out.println("READ: " + eventDAO.read(event1.getId()));
-    }
-    private static void testUpdateEvent() {
-        Event event = eventDAO.findByTittle("Tittle");
-        Event event1 = eventDAO.findByTittle("Title without Description and Time");
-
-        System.out.println("PRE UPDATE " + event);
-        System.out.println("PRE UPDATE " + event1);
-
-        event.setDescription(event.getDescription() + random.nextInt());
-        event1.setDescription(event1.getDescription() + random.nextInt());
-        event1.setDate(LocalDate.now());
-
-        eventDAO.update(event);
-        eventDAO.update(event1);
-
-        System.out.println("POST UPDATE " + eventDAO.findByTittle("Tittle"));
-        System.out.println("POST UPDATE " + eventDAO.findByTittle("Title without Description and Time"));
-    }
-    private static void testDeleteEvent() {
-        Event event = eventDAO.findByTittle("Tittle");
-        Event event1 = eventDAO.findByTittle("Title without Description and Time");
-
-        System.out.println("TO DELETE " + event);
-        System.out.println("TO DELETE " + event1);
-
-        eventDAO.delete(event.getId());
-        eventDAO.delete(event1.getId());
-
-        System.out.println("POST DELETE " + eventDAO.findByTittle("Tittle"));
-        System.out.println("POST DELETE " + eventDAO.findByTittle("Title without Description and Time"));
-    }
-
-
-
-    private static void testUserActivities() {
-        userDAO.create(User.createUser());
-
-        User user = userDAO.findByUsername("Oita");
-        Activity activity = activityDAO.findByTittle("Tittle");
-        Activity activity1 = activityDAO.findByTittle("Title without Description and Time");
-
-        activity.setUser(user.getId());
-        activity1.setUser(user.getId());
-        user.addActivity(activity.getId());
-        user.addActivity(activity1.getId());
-
-        userDAO.update(user);
-        activityDAO.update(activity);
-        activityDAO.update(activity1);
-    }
-
-    private static void testDateFormat() {
-        User user = userDAO.findByUsername("Oita");
-
-        Activity activity = new Activity();
-        activity.setId(new ObjectId());
-        activity.setTittle("New Tittle");
-        activity.setDate(LocalDate.of(2023, 3, 4));
-        activity.setUser(user.getId());
-
-        user.addActivity(activity.getId());
-
-        userDAO.update(user);
-        activityDAO.create(activity);
-    }
-
-    private static void testUserEvents() {
-        User user = userDAO.findByUsername("Oita");
-        Event event = eventDAO.findByTittle("Tittle");
-        Event event1 = eventDAO.findByTittle("Title without Description and Time");
-
-        user.setEvents(new ArrayList<>());
-        user.addEvent(event.getId());
-        user.addEvent(event1.getId());
-        event.setUsers(new ArrayList<>());
-        event.addUser(user.getId());
-        event1.setUsers(new ArrayList<>());
-        event1.addUser(user.getId());
-
-        userDAO.update(user);
-        eventDAO.update(event);
-        eventDAO.update(event1);
-    }
-
-    private static void testUserEvents2() {
-        User user = User.createUser();
-        user.setUsername("Oita2");
-        user.setEmail("oita2@email.com");
-        user.getProfile().setName("Iago 2");
-        Event event = eventDAO.findByTittle("Tittle");
-        Event event1 = eventDAO.findByTittle("Title without Description and Time");
-
-        user.addEvent(event.getId());
-        user.addEvent(event1.getId());
-        event.addUser(user.getId());
-        event1.addUser(user.getId());
-
-        userDAO.create(user);
-        eventDAO.update(event);
-        eventDAO.update(event1);
-    }
 }

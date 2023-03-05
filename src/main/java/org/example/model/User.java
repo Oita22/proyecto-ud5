@@ -20,6 +20,7 @@ public class User {
     private ObjectId id;
     private String username;
     private String email;
+    private boolean enabled;
 
     // One To One - Incrustado
     private Profile profile;
@@ -38,17 +39,22 @@ public class User {
                 new ObjectId(),
                 "Oita",
                 "oita@email.com",
+                true,
                 new Profile(new ObjectId(), "Iago", "Oitavén", "123456789", 2000),
-                Arrays.asList(new Role(new ObjectId(), "ADMIN", 0), new Role(new ObjectId(), "MOD", 1)),
+                Arrays.asList(new Role(new ObjectId(), RoleType.ADMIN, 0), new Role(new ObjectId(), RoleType.MODERATOR, 1)),
                 new ArrayList<>(),
                 new ArrayList<>());
     }
 
     public void addActivity(ObjectId activityId) {
+        if (activities == null)
+            activities = new ArrayList<>();
         this.activities.add(activityId);
     }
 
     public void addEvent(ObjectId eventId) {
+        if (events == null)
+            events = new ArrayList<>();
         this.events.add(eventId);
     }
 }

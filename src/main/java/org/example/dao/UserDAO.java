@@ -2,10 +2,7 @@ package org.example.dao;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.model.Indexes;
@@ -18,6 +15,9 @@ import org.bson.types.ObjectId;
 import org.example.model.User;
 
 import java.util.Arrays;
+
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
 
 public class UserDAO {
     private static final String DB_NAME = "ud5db";
@@ -41,7 +41,7 @@ public class UserDAO {
         userCollection = database.getCollection(COLLECTION_NAME, User.class);
 
         // Restrictions
-        //applyRestrictions();
+        applyRestrictions();
     }
 
     private void applyRestrictions() {
@@ -55,10 +55,6 @@ public class UserDAO {
 
     public User read(ObjectId id) {
         return userCollection.find(Filters.eq("_id", id)).first();
-    }
-
-    public User findByUsername(String username) {
-        return userCollection.find(Filters.eq("username", username)).first();
     }
 
     public void update(User user) {
@@ -77,5 +73,43 @@ public class UserDAO {
 
     public void close() {
         mongoClient.close();
+    }
+
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de todos los usuarios de la base de datos
+     *
+     * @return FindIterable<Event> con el resultado de la consulta
+     */
+    public FindIterable<User> findAll() {
+        return userCollection.find();
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de un Usuario por su nombre de usuario
+     * El username tiene filtro asociado de unicidad, por lo que solo existe 1 como máximo
+     *
+     * @param username Nombre de usuario
+     * @return User. Si existe devuelve el usuario buscado
+     */
+    public User findByUsername(String username) {
+        return userCollection.find(Filters.eq("username", username)).first();
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de un Usuario por su nombre de usuario y estado
+     *
+     * @param username Nombre de usuario
+     * @param enabled Estado. True - Activo | False - Ban
+     * @return FindIterable<Event> con el resultado de la consulta
+     */
+    public User findByUsernameAndEnable(String username, boolean enabled) {
+        return userCollection.find(and(
+                eq("enabled", enabled),
+                eq("username", username)
+        )).first();
     }
 }

@@ -14,8 +14,12 @@ import org.bson.types.ObjectId;
 import org.example.model.Activity;
 
 import java.time.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
 
 
 public class ActivityDAO {
@@ -45,22 +49,19 @@ public class ActivityDAO {
     }
 
     public Activity read(ObjectId id) {
-        return activityCollection.find(Filters.eq("_id", id)).first();
+        return activityCollection.find(eq("_id", id)).first();
     }
 
-    public Activity findByTittle(String tittle) {
-        return activityCollection.find(Filters.eq("tittle", tittle)).first();
-    }
 
     public void update(Activity activity) {
-        UpdateResult result = activityCollection.replaceOne(Filters.eq("_id", activity.getId()), activity);
+        UpdateResult result = activityCollection.replaceOne(eq("_id", activity.getId()), activity);
         if (result.getModifiedCount() == 0) {
             throw new RuntimeException("UPDATE: No activity found with id " + activity.getId());
         }
     }
 
     public void delete(ObjectId id) {
-        DeleteResult result = activityCollection.deleteOne(Filters.eq("_id", id));
+        DeleteResult result = activityCollection.deleteOne(eq("_id", id));
         if (result.getDeletedCount() == 0) {
             throw new RuntimeException("DELETE: No activity found with id " + id);
         }
@@ -70,31 +71,62 @@ public class ActivityDAO {
         mongoClient.close();
     }
 
+    // CONSULTAS
 
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de una Actividad por su título
+     *
+     * @param tittle Título
+     * @return Activity. La primera que encuentra que corresponde con el título pasado
+     */
+    public Activity findByTittle(String tittle) {
+        return activityCollection.find(eq("tittle", tittle)).first();
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de actividades en una fecha concreta
+     *
+     * @param date Fecha
+     * @return FindIterable<Activity> con el resultado de la consulta
+     */
+    public FindIterable<Activity> findByDate(LocalDate date) {
+        Bson query = eq("date", date);
+
+        return activityCollection.find(query);
+    }
+
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de actividades entre 2 fechas dadas.
+     *
+     * @param startDate Fecha de inicio
+     * @param endDate   Fecha de fin
+     * @return FindIterable<Activity> con el resultado de la consulta
+     */
     public FindIterable<Activity> findBetweenDates(LocalDate startDate, LocalDate endDate) {
         System.out.println(startDate + " - " + endDate);
-        Bson query = Filters.and(Filters.gte("date", startDate),
+        Bson query = and(Filters.gte("date", startDate),
                 Filters.lt("date", endDate));
 
-        // FindIterable<Activity> results = activityCollection.find(query);
         return activityCollection.find(query);
     }
 
-    public FindIterable<Activity> findByDate(LocalDate date) {
-        Bson query = Filters.eq("date", date);
-
-        // FindIterable<Activity> results = activityCollection.find(query);
-        return activityCollection.find(query);
-    }
-
-    public FindIterable<Activity> findBetweenHours(LocalDateTime startTime, LocalDateTime endTime) {
-        System.out.println(startTime + " - " + endTime);
-        FindIterable<Activity> query = activityCollection.find(
-                Filters.and(
-                        Filters.gte("time", startTime),
-                        Filters.lt("time", endTime)));
-
-        return query;
+    /**
+     * Consulta empleando filtros.
+     * Búsqueda de actividades por un usuario y en un estado concreto
+     *
+     * @param userId ID del usuario sobre el que se realiza la consulta
+     * @param finished Estado de la actividad. True - Finalizada | False - No finalizada
+     * @return FindIterable<Activity> con el resultado de la consulta
+     */
+    public FindIterable<Activity> findByUserIdAndFinished(ObjectId userId, boolean finished) {
+        return activityCollection.find(and(
+                eq("finished", finished),
+                eq("user", userId)
+        ));
     }
 
 
