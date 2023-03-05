@@ -27,8 +27,8 @@ public class Main {
         activityDAO = new ActivityDAO();
 
         //filtersOperations();
-        updateOperations();
-
+        //updateOperations();
+        aggregationPipelineOperations();
     }
 
     /**
@@ -195,9 +195,15 @@ public class Main {
                 "del año recibido y lo aumenta en la cantidad pasada");
         userDAO.updateBirthYearIncreaseByYear(1950, 1);
         System.out.println("VER EN LA DB");
-
     }
 
+
+    /**
+     * Operaciones de agregación pipeline
+     */
+    private static void aggregationPipelineOperations() {
+        eventDAO.getCountOfEventsCreatedGroupByUserId();
+    }
 
 
     private static void printFindIterable(FindIterable findIterable) {

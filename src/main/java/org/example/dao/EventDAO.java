@@ -3,18 +3,22 @@ package org.example.dao;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Updates;
+import com.mongodb.client.model.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
+import org.example.export_json.JsonExporter;
+import org.example.export_json.SaveDirectory;
 import org.example.model.Event;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -24,6 +28,7 @@ public class EventDAO {
 
     private final MongoClient mongoClient;
     private final MongoCollection<Event> eventsCollection;
+    private final MongoCollection<Document> documentCollection;
 
     public EventDAO() {
         CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
@@ -38,6 +43,9 @@ public class EventDAO {
 
         MongoDatabase database = mongoClient.getDatabase(DB_NAME);
         eventsCollection = database.getCollection(COLLECTION_NAME, Event.class);
+
+        // --
+        documentCollection = database.getCollection(COLLECTION_NAME);
     }
 
     public void create(Event event) {
@@ -119,7 +127,7 @@ public class EventDAO {
      * Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
      *
      * @param startDate Fecha del margen de inicio
-     * @param endDate Fecha de margen de finalización
+     * @param endDate   Fecha de margen de finalización
      * @return FindIterable<Event> con el resultado de la consulta
      */
     public FindIterable<Event> findByBetweenDateAndAtLeastOneUser(LocalDate startDate, LocalDate endDate) {
@@ -135,8 +143,8 @@ public class EventDAO {
     /**
      * Actualiza el título y la descripción de un evento con un ID específico
      *
-     * @param eventId ObjectId del Event
-     * @param tittle String - Nuevo título
+     * @param eventId     ObjectId del Event
+     * @param tittle      String - Nuevo título
      * @param description String - Nueva descripción
      * @return Event asociado al ID pasado
      */
@@ -156,7 +164,7 @@ public class EventDAO {
     /**
      * Actualiza el estado de todos los eventos con una fecha específica
      *
-     * @param date LocalDate - Fecha de los eventos para actualizar
+     * @param date     LocalDate - Fecha de los eventos para actualizar
      * @param finished boolean - Nuevo estado
      */
     public void updateStateByEventDate(LocalDate date, boolean finished) {
@@ -170,7 +178,7 @@ public class EventDAO {
      * Actualiza la fecha del Evento del que recibe su ID por parámetro
      *
      * @param eventId ObjectId - ID del evento
-     * @param date LocalDate - Nueva fecha para el evento
+     * @param date    LocalDate - Nueva fecha para el evento
      * @return Evento asociado al ID recibido
      */
     public Event updateDateByEventId(ObjectId eventId, LocalDate date) {
@@ -180,5 +188,28 @@ public class EventDAO {
         eventsCollection.updateMany(filter, update);
 
         return findByEventId(eventId);
+    }
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    public void getCountOfEventsCreatedGroupByUserId() {
+//        List<Bson> pipeline = Arrays.asList(Aggregates.group("$owner", Accumulators.sum("count", 1)));
+//
+//        MongoCursor<Document> cursor = documentCollection.aggregate(pipeline).iterator();
+//
+//        while (cursor.hasNext()) {
+//            Document result = cursor.next();
+//            System.out.println(result.toJson());
+//        }
+
+        AggregateIterable<Document> result = documentCollection.aggregate(
+                Arrays.asList(Aggregates.group("$owner", Accumulators.sum("count", 1))));
+
+        // Iterar sobre los resultados
+//        for (Document doc : result) {
+//            System.out.println(doc.toJson());
+//        }
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-creados-por-usuario.json");
     }
 }
