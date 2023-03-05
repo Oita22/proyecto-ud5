@@ -12,7 +12,13 @@ import org.bson.types.ObjectId;
 public class Role {
     @BsonProperty(value = "_id")
     private ObjectId id;
-    private String role;
+    private RoleType role;
     @BsonProperty(value = "role_value")
     private int roleValue;
+
+    public Role(RoleType roleType) {
+        this.id = new ObjectId();
+        this.role = roleType;
+        this.roleValue = roleType.getValue();
+    }
 }
