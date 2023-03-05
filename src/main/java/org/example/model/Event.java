@@ -23,25 +23,30 @@ public class Event {
     private boolean finished;
     private LocalDate date;
 
+    // Many To One - Por referencia
+    private ObjectId owner;
+
     // Many To Many - Por referencia
     private List<ObjectId> users;
 
-    public static Event createEvent() {
+    public static Event createEvent(User user) {
         return new Event(
                 new ObjectId(),
-                "Tittle",
+                "Tittle Owner",
                 "Description",
                 false,
                 LocalDate.now(),
+                user.getId(),
                 new ArrayList<>());
     }
 
-    public static Event createEventWithOutDescription() {
+    public static Event createEventWithOutDescription(User user) {
         Event event = new Event();
         event.setId(new ObjectId());
-        event.setTittle("Title without Description and Time");
+        event.setTittle("Title - Owner - without Description and Time");
         event.setFinished(false);
         event.setDate(LocalDate.now());
+        event.setOwner(user.getId());
 
         return event;
     }

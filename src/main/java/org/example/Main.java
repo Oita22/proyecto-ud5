@@ -1,5 +1,6 @@
 package org.example;
 
+import com.mongodb.client.FindIterable;
 import org.bson.types.ObjectId;
 import org.example.dao.ActivityDAO;
 import org.example.dao.EventDAO;
@@ -9,8 +10,10 @@ import org.example.model.Event;
 import org.example.model.User;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -37,6 +40,22 @@ public class Main {
 
         //testUserEvents();
         //testUserEvents2();
+
+        FindIterable<Activity> activities = activityDAO.findBetweenDates(LocalDate.of(2022, 1, 1), LocalDate.now());
+        for (Activity activity : activities)
+            System.out.println(activity);
+
+        FindIterable<Activity> activities1 = activityDAO.findBetweenHours(
+                LocalDateTime.of(2023, 3, 4, 11, 38),
+                LocalDateTime.of(2023, 3, 4, 11, 40));
+        for (Activity activity : activities1)
+            System.out.println(activity);
+
+        FindIterable<Activity> activities2 = activityDAO.findByDate(LocalDate.of(2023, 3, 5));
+        for (Activity activity : activities2)
+            System.out.println(activity);
+
+        testCreateEvent();
     }
 
     private static void testActivity() {
@@ -161,8 +180,8 @@ public class Main {
 
 
     private static void testCreateEvent() {
-        Event event = Event.createEvent();
-        Event event1 = Event.createEventWithOutDescription();
+        Event event = Event.createEvent(userDAO.findByUsername("Oita"));
+        Event event1 = Event.createEventWithOutDescription(userDAO.findByUsername("Oita"));
 
         // Create
         eventDAO.create(event);

@@ -22,6 +22,8 @@ public class Activity {
     private boolean finished;
     private LocalDate date;
     private LocalTime time;
+    @BsonProperty(value = "duration_time")
+    private DurationTime durationTime;
 
     // Many To One - Por referencia
     private ObjectId user;
@@ -33,6 +35,7 @@ public class Activity {
                 false,
                 LocalDate.now(),
                 LocalTime.now(),
+                DurationTime.MEDIUM,
                 user.getId());
     }
 
@@ -42,6 +45,7 @@ public class Activity {
         activity.setTittle("Title without Description and Time");
         activity.setFinished(false);
         activity.setDate(LocalDate.now());
+        activity.setDurationTime(DurationTime.MEDIUM);
 
         return activity;
     }
