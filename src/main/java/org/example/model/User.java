@@ -55,6 +55,8 @@ public class User {
     public void addEvent(ObjectId eventId) {
         if (events == null)
             events = new ArrayList<>();
-        this.events.add(eventId);
+
+        if (!events.contains(eventId))
+            events.add(eventId);
     }
 }

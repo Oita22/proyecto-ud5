@@ -14,9 +14,7 @@ import org.bson.types.ObjectId;
 import org.example.model.Activity;
 
 import java.time.*;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;

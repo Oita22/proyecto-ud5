@@ -3,14 +3,12 @@ package org.example.dao;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.types.ObjectId;
-import org.example.model.Activity;
 import org.example.model.Event;
 
 import java.time.LocalDate;
@@ -66,6 +64,16 @@ public class EventDAO {
         mongoClient.close();
     }
 
+    /**
+     * Búsqueda de todos los Eventos o solo los que no tienen usuarios inscritos
+     *
+     * @return FindIterable<Event> con todos los eventos
+     */
+    public FindIterable<Event> findAll(boolean onlyEmpties) {
+        if (onlyEmpties)
+            return eventsCollection.find(exists("users", false));
+        return eventsCollection.find();
+    }
 
     /**
      * Consulta empleando filtros.
@@ -110,8 +118,8 @@ public class EventDAO {
      */
     public FindIterable<Event> findByBetweenDateAndAtLeastOneUser(LocalDate startDate, LocalDate endDate) {
         return eventsCollection.find(and(
-                gte("date", LocalDate.of(2023, 1, 1)),
-                lte("date", LocalDate.of(2024, 1, 1)),
+                gte("date", startDate),
+                lte("date", endDate),
                 exists("users", true))
         );
     }

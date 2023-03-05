@@ -55,6 +55,7 @@ public class Main {
         for (Event event : events1)
             System.out.println(event);
 
+        System.out.println("\n".repeat(3));
         // Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
         FindIterable<Event> events2 = eventDAO.findByBetweenDateAndAtLeastOneUser(LocalDate.of(2022, 1, 1), LocalDate.now());
         for (Event event : events2)
