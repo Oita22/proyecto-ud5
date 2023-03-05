@@ -6,11 +6,13 @@ import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.model.Indexes;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.example.model.User;
 
@@ -111,5 +113,37 @@ public class UserDAO {
                 eq("enabled", enabled),
                 eq("username", username)
         )).first();
+    }
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Actualiza el apellido de un Usuario que busca por su nombre de usuario
+     *
+     * @param username String - Nombre de usuario
+     * @param surname String nuevo apellido
+     * @return User asociado al username recibido
+     */
+    public User updateSurnameByUsername(String username, String surname) {
+        Bson filter = eq("username", username);
+        Bson update = Updates.set("profile.surname", surname);
+
+        userCollection.updateMany(filter, update);
+
+        return findByUsername(username);
+    }
+
+    /**
+     * Actualiza el campo profile.birth_year de todos los usuarios que ese campo sea menor del año recibido
+     * y lo aumenta en la cantidad pasada
+     *
+     * @param year int - Año hasta el que se modificará
+     * @param increment int - Cantidad a aumentar
+     */
+    public void updateBirthYearIncreaseByYear(int year, int increment) {
+        userCollection.updateMany(
+                Filters.lt("profile.birth_year", year),
+                Updates.inc("profile.birth_year", increment)
+        );
     }
 }

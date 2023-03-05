@@ -4,6 +4,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.codecs.configuration.CodecRegistries;
@@ -71,6 +72,15 @@ public class ActivityDAO {
 
     // CONSULTAS
 
+    /**
+     * Busca la Activity que tiene como ID el recibido por parámetros
+     *
+     * @param activityId ID de la actividad
+     * @return Activity
+     */
+    public Activity findByActivityId(ObjectId activityId) {
+        return activityCollection.find(eq("_id", activityId)).first();
+    }
 
     /**
      * Consulta empleando filtros.
@@ -127,5 +137,81 @@ public class ActivityDAO {
         ));
     }
 
+    // ----------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Actualiza el título de una actividad con un ID específico
+     *
+     * @param activityId ID de la Activity
+     * @param newTittle Nuevo título para actualizar
+     * @return Activity del ID recibido
+     */
+    public Activity updateTittleByActivityId(ObjectId activityId, String newTittle) {
+        Bson filter = Filters.eq("_id", activityId);
+        Bson update = Updates.set("tittle", newTittle);
+
+        activityCollection.updateOne(filter, update);
+
+        return findByActivityId(activityId);
+    }
+
+    /**
+     * Actualizar el estado de una actividad con un ID específico
+     *
+     * @param activityId ObjectId - ID de la Activity
+     * @param finished boolean - Estado al que se va a actualizar
+     * @return Activity del ID recibido
+     */
+    public Activity updateFinishedByActivityId(ObjectId activityId, boolean finished) {
+        Bson filter = Filters.eq("_id", activityId);
+        Bson update = Updates.set("finished", finished);
+
+        activityCollection.updateOne(filter, update);
+
+        return findByActivityId(activityId);
+    }
+
+    /**
+     * Actualiza la descripción de todas las actividades con una fecha específica
+     *
+     * @param date LocalDate - Fecha de las actividades a las que se le actualizará la descripción
+     */
+    public void updateDescriptionForActivitiesOnDate(LocalDate date, String description) {
+        Bson filter = Filters.eq("date", date);
+        Bson update = Updates.set("description", description);
+
+        activityCollection.updateMany(filter, update);
+    }
+
+    /**
+     * Actualiza la fecha de una actividad con un ID específico
+     *
+     * @param activityId ObjectId - ID de la actividad
+     * @param date LocalDate - Fecha para actualizar
+     * @return Activity asociada al ID recibido
+     */
+    public Activity updateDateByActivityId(ObjectId activityId, LocalDate date) {
+        Bson filter = Filters.eq("_id", activityId);
+        Bson update = Updates.set("date", date);
+
+        activityCollection.updateOne(filter, update);
+
+        return findByActivityId(activityId);
+    }
+
+    /**
+     * Actualiza la hora de una actividad con un ID específico
+     *
+     * @param activityId ObjectId - ID de la actividad
+     * @param time DurationTime - Tipo de duración de tiempo de la actividad
+     * @return Activity asociada al ID
+     */
+    public Activity updateTimeByActivityId(ObjectId activityId, LocalTime time) {
+        activityCollection.updateMany(
+                Filters.eq("_id", activityId),
+                Updates.set("time", time)
+        );
+
+        return findByActivityId(activityId);
+    }
 }

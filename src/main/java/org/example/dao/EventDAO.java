@@ -3,11 +3,13 @@ package org.example.dao;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import org.example.model.Event;
 
@@ -62,6 +64,10 @@ public class EventDAO {
 
     public void close() {
         mongoClient.close();
+    }
+
+    public Event findByEventId(ObjectId eventId) {
+        return eventsCollection.find(eq("_id", eventId)).first();
     }
 
     /**
@@ -122,5 +128,57 @@ public class EventDAO {
                 lte("date", endDate),
                 exists("users", true))
         );
+    }
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Actualiza el título y la descripción de un evento con un ID específico
+     *
+     * @param eventId ObjectId del Event
+     * @param tittle String - Nuevo título
+     * @param description String - Nueva descripción
+     * @return Event asociado al ID pasado
+     */
+    public Event updateTittleAndDescriptionByEventId(ObjectId eventId, String tittle, String description) {
+        Bson filter = eq("_id", eventId);
+
+        Bson update = Updates.combine(
+                Updates.set("tittle", tittle),
+                Updates.set("description", description)
+        );
+
+        eventsCollection.updateOne(filter, update);
+
+        return findByEventId(eventId);
+    }
+
+    /**
+     * Actualiza el estado de todos los eventos con una fecha específica
+     *
+     * @param date LocalDate - Fecha de los eventos para actualizar
+     * @param finished boolean - Nuevo estado
+     */
+    public void updateStateByEventDate(LocalDate date, boolean finished) {
+        Bson filter = eq("date", date);
+        Bson update = Updates.set("finished", finished);
+
+        eventsCollection.updateMany(filter, update);
+    }
+
+    /**
+     * Actualiza la fecha del Evento del que recibe su ID por parámetro
+     *
+     * @param eventId ObjectId - ID del evento
+     * @param date LocalDate - Nueva fecha para el evento
+     * @return Evento asociado al ID recibido
+     */
+    public Event updateDateByEventId(ObjectId eventId, LocalDate date) {
+        Bson filter = eq("_id", eventId);
+        Bson update = Updates.set("date", date);
+
+        eventsCollection.updateMany(filter, update);
+
+        return findByEventId(eventId);
     }
 }
