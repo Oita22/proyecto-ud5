@@ -76,6 +76,10 @@ public class EventDAO {
         mongoClient.close();
     }
 
+    public void removeAll() {
+        eventsCollection.deleteMany(new Document());
+    }
+
     public Event findByEventId(ObjectId eventId) {
         return eventsCollection.find(eq("_id", eventId)).first();
     }

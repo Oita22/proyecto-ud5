@@ -1,12 +1,16 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.With;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
+import org.example.model.deserializer.ObjectIdDeserializer;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -14,8 +18,9 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
-public class Activity {
-    @BsonProperty(value = "_id")
+public class Activity implements Serializable {
+    //@BsonProperty(value = "_id")
+    @JsonProperty("_id.oid")
     private ObjectId id;
     private String tittle;
     private String description;

@@ -81,6 +81,9 @@ public class UserDAO {
         mongoClient.close();
     }
 
+    public void removeAll() {
+        userCollection.deleteMany(new Document());
+    }
 
     /**
      * Consulta empleando filtros.

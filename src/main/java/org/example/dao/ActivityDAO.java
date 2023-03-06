@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
@@ -16,8 +17,13 @@ import org.example.export.JsonExporter;
 import org.example.export.SaveDirectory;
 import org.example.model.Activity;
 
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.*;
 import java.util.Arrays;
+import java.util.List;
 
 import static com.mongodb.client.model.Accumulators.push;
 import static com.mongodb.client.model.Filters.and;
@@ -73,6 +79,23 @@ public class ActivityDAO {
 
     public void close() {
         mongoClient.close();
+    }
+
+    public void removeAll() {
+        activityCollection.deleteMany(new Document());
+    }
+
+    public void loadData() {
+        try {
+            String json = new String(Files.readAllBytes(Paths.get(SaveDirectory.RESET.getPath() + "activities.json")), StandardCharsets.UTF_8);
+
+            ObjectMapper mapper = new ObjectMapper();
+            Activity[] activities = mapper.readValue(json, Activity[].class);
+
+            activityCollection.insertMany(Arrays.asList(activities));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // CONSULTAS
