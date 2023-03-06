@@ -1,0 +1,14 @@
+[
+  {
+    "userCount": 3,
+    "_id": "ADMIN"
+  },
+  {
+    "userCount": 5,
+    "_id": "USER"
+  },
+  {
+    "userCount": 2,
+    "_id": "MODERATOR"
+  }
+]

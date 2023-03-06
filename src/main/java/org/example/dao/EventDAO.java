@@ -20,7 +20,10 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.mongodb.client.model.Accumulators.sum;
+import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Indexes.descending;
 
 public class EventDAO {
     private static final String DB_NAME = "ud5db";
@@ -44,7 +47,6 @@ public class EventDAO {
         MongoDatabase database = mongoClient.getDatabase(DB_NAME);
         eventsCollection = database.getCollection(COLLECTION_NAME, Event.class);
 
-        // --
         documentCollection = database.getCollection(COLLECTION_NAME);
     }
 
@@ -192,24 +194,84 @@ public class EventDAO {
 
     // ----------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Obtiene la cantidad total de eventos creados por cada usuario.
+     * Agrupamiento. Con función de agregado
+     */
     public void getCountOfEventsCreatedGroupByUserId() {
-//        List<Bson> pipeline = Arrays.asList(Aggregates.group("$owner", Accumulators.sum("count", 1)));
-//
-//        MongoCursor<Document> cursor = documentCollection.aggregate(pipeline).iterator();
-//
-//        while (cursor.hasNext()) {
-//            Document result = cursor.next();
-//            System.out.println(result.toJson());
-//        }
-
         AggregateIterable<Document> result = documentCollection.aggregate(
-                Arrays.asList(Aggregates.group("$owner", Accumulators.sum("count", 1))));
+                Arrays.asList(group("$owner", sum("count", 1))));
 
-        // Iterar sobre los resultados
 //        for (Document doc : result) {
 //            System.out.println(doc.toJson());
 //        }
 
-        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-creados-por-usuario.json");
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "cantidad-eventos-creados-por-usuario.json");
+    }
+
+    /**
+     * Obtiene el promedio de edad de los usuarios que han creado eventos
+     */
+    public void getAverageBirthYearOfOwners() {
+        AggregateIterable<Document> result = documentCollection.aggregate(
+                Arrays.asList(
+                        Aggregates.lookup("users", "owner", "_id", "owner_user"),
+                        Aggregates.unwind("$owner_user"),
+                        group(null, Accumulators.avg("avgAge", "$owner_user.profile.birth_year"))
+                )
+        );
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "anho-nacimiento-medio-creadores-eventos.json");
+    }
+
+    /**
+     * Obtiene los eventos que se realizarán en los próximos X días
+     *
+     * @param days int - Días hasta lo que busca por los eventos
+     */
+    public void getEventsInNextDays(long days) {
+        AggregateIterable<Document> result = documentCollection.aggregate(Arrays.asList(
+                match(and(gte("date", LocalDate.now()), lte("date", LocalDate.now().plusDays(days))))
+        ));
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-proximos-dias.json");
+    }
+
+    /**
+     * Obtiene la lista de eventos y la cantidad de usuarios que se han unido a cada uno
+     */
+    public void getCountUserJoinedByEvent() {
+        List<Bson> pipeline = Arrays.asList(
+                new Document("$lookup",
+                        new Document("from", "users")
+                                .append("localField", "users")
+                                .append("foreignField", "_id")
+                                .append("as", "users")
+                ),
+                new Document("$project",
+                        new Document("_id", 1)
+                                .append("title", 1)
+                                .append("userCount", new Document("$size", "$users"))
+                )
+        );
+
+        AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-con-mas-usuarios.json");
+    }
+
+    /**
+     * Obtiene todos los eventos acabados y los muestra en orden descendente.
+     * * Nota: El campo 'date' se muestra así porque está en formato de milisegundos, desde el 1 de enero de 1970
+     */
+    public void getFinishedEventsOrderByDesc() {
+        List<Bson> pipeline = Arrays.asList(
+                Aggregates.match(Filters.eq("finished", true)),
+                Aggregates.sort(Sorts.descending("date"))
+        );
+
+        AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-finalizados-orden-desc.json");
     }
 }

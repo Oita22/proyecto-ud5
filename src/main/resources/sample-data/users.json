@@ -1,0 +1,429 @@
+[{
+  "_id": {
+    "$oid": "6403bc482a489b7f6489409a"
+  },
+  "activities": [
+    {
+      "$oid": "6403b7fbb9d3c76271a93715"
+    },
+    {
+      "$oid": "6403b7fbb9d3c76271a93716"
+    },
+    {
+      "$oid": "6403bc56a62cd87437d1c5d8"
+    },
+    {
+      "$oid": "6403c7ea1340177d1a800fc0"
+    },
+    {
+      "$oid": "6403c8a8987c3f07ae83544a"
+    },
+    {
+      "$oid": "64040454232fb46890c6ea7b"
+    }
+  ],
+  "email": "oita@email.com",
+  "enabled": true,
+  "events": [
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 2000,
+    "_id": {
+      "$oid": "6403bc482a489b7f6489409b"
+    },
+    "name": "Iago",
+    "phone": "123456789",
+    "surname": "Oitavén"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "6403bc482a489b7f6489409c"
+      },
+      "role": "ADMIN",
+      "role_value": 0
+    },
+    {
+      "_id": {
+        "$oid": "6403bc482a489b7f6489409d"
+      },
+      "role": "MODERATOR",
+      "role_value": 1
+    }
+  ],
+  "username": "Oita"
+},{
+  "_id": {
+    "$oid": "6403c029001813739981d98e"
+  },
+  "activities": [],
+  "email": "oita2@email.com",
+  "enabled": false,
+  "events": [
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 2000,
+    "_id": {
+      "$oid": "6403c029001813739981d98f"
+    },
+    "name": "Iago 2",
+    "phone": "123456789",
+    "surname": "Oitavén"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "6403c029001813739981d990"
+      },
+      "role": "ADMIN",
+      "role_value": 0
+    },
+    {
+      "_id": {
+        "$oid": "6403c029001813739981d991"
+      },
+      "role": "MODERATOR",
+      "role_value": 1
+    }
+  ],
+  "username": "Oita2"
+},{
+  "_id": {
+    "$oid": "640419518e457c7557bce16a"
+  },
+  "activities": [
+    {
+      "$oid": "640419518e457c7557bce16d"
+    }
+  ],
+  "email": "email-96750632@email.com",
+  "enabled": true,
+  "events": [
+    {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 1998,
+    "_id": {
+      "$oid": "640419518e457c7557bce16b"
+    },
+    "name": "User1629524261",
+    "phone": "159482630",
+    "surname": "1629524261"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "640419518e457c7557bce16c"
+      },
+      "role": "USER",
+      "role_value": 2
+    }
+  ],
+  "username": "User1629524261"
+},{
+  "_id": {
+    "$oid": "6404cd79d3aee33e0f33fe57"
+  },
+  "activities": [
+    {
+      "$oid": "6404cd79d3aee33e0f33fe59"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5a"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5b"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5c"
+    }
+  ],
+  "email": "email1497185538@email.com",
+  "enabled": true,
+  "events": [
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 1918,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe58"
+    },
+    "name": "User1497185538",
+    "phone": "398345372",
+    "surname": "1497185538"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe56"
+      },
+      "role": "USER",
+      "role_value": 2
+    }
+  ],
+  "username": "User1497185538"
+},{
+  "_id": {
+    "$oid": "6404cd79d3aee33e0f33fe61"
+  },
+  "activities": [
+    {
+      "$oid": "6404cd79d3aee33e0f33fe63"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe64"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe65"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe66"
+    }
+  ],
+  "email": "email-648965095@email.com",
+  "enabled": true,
+  "events": [
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 2020,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe62"
+    },
+    "name": "User-648965095",
+    "phone": "213179365",
+    "surname": "-648965095"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe60"
+      },
+      "role": "USER",
+      "role_value": 2
+    },
+    {
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe5f"
+      },
+      "role": "ADMIN",
+      "role_value": 0
+    }
+  ],
+  "username": "User-648965095"
+},{
+  "_id": {
+    "$oid": "6404cd79d3aee33e0f33fe6a"
+  },
+  "activities": [
+    {
+      "$oid": "6404cd79d3aee33e0f33fe6c"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe6d"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe6e"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe6f"
+    }
+  ],
+  "email": "email533551192@email.com",
+  "enabled": true,
+  "events": [
+    {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  ],
+  "profile": {
+    "birth_year": 2004,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe6b"
+    },
+    "name": "User533551192",
+    "phone": "481507216",
+    "surname": "Apellido mod-30269579"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe69"
+      },
+      "role": "USER",
+      "role_value": 2
+    }
+  ],
+  "username": "User533551192"
+}]

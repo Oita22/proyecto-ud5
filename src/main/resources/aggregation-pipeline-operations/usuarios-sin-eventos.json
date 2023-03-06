@@ -1,0 +1,29 @@
+[
+  {
+    "profile": {
+      "phone": "987654321",
+      "surname": "123456789",
+      "name": "Usuario",
+      "_id": {
+        "$oid": "640540949b424165d76a67fb"
+      },
+      "birth_year": 1928
+    },
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "640540949b424165d76a67fa"
+        }
+      }
+    ],
+    "_id": {
+      "$oid": "640540949b424165d76a67f9"
+    },
+    "email": "user123456789@email.com",
+    "enabled": true,
+    "events": [],
+    "username": "Usuario123456789"
+  }
+]

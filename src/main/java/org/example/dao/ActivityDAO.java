@@ -3,20 +3,23 @@ package org.example.dao;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
+import com.mongodb.client.model.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
+import org.example.export_json.JsonExporter;
+import org.example.export_json.SaveDirectory;
 import org.example.model.Activity;
 
 import java.time.*;
 import java.util.Arrays;
 
+import static com.mongodb.client.model.Accumulators.push;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 
@@ -27,6 +30,7 @@ public class ActivityDAO {
 
     private final MongoClient mongoClient;
     private final MongoCollection<Activity> activityCollection;
+    private final MongoCollection<Document> documentCollection;
 
     public ActivityDAO() {
         CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
@@ -41,6 +45,7 @@ public class ActivityDAO {
 
         MongoDatabase database = mongoClient.getDatabase(DB_NAME);
         activityCollection = database.getCollection(COLLECTION_NAME, Activity.class);
+        documentCollection = database.getCollection(COLLECTION_NAME);
     }
 
     public void create(Activity activity) {
@@ -213,5 +218,44 @@ public class ActivityDAO {
         );
 
         return findByActivityId(activityId);
+    }
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Obtiene la cantidad de actividades finalizadas y no finalizadas.
+     * Agrupamiento. Con función de agregado
+     */
+    public void getCountActivitiesGroupByFinished() {
+        AggregateIterable<Document> result = documentCollection.aggregate(Arrays.asList(
+                Aggregates.group("$finished", Accumulators.sum("count", 1))));
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "cantidad-actividades-por-finished.json");
+    }
+
+    /**
+     * Obtiene las actividades de cada usuario junto con la cantidad total de actividades que ha creado.
+     */
+    public void getActivitiesAndTotalCountByUser() {
+        AggregateIterable<Document> result = documentCollection.aggregate(
+                Arrays.asList(
+                        Aggregates.group("$user",
+                                Accumulators.sum("count", 1),
+                                push("activities", "$$ROOT")
+                        ),
+                        Aggregates.lookup("users", "_id", "_id", "user"),
+                        Aggregates.unwind("$user"),
+                        Aggregates.project(
+                                Projections.fields(
+                                        Projections.excludeId(),
+                                        Projections.computed("user", "$user.username"),
+                                        Projections.computed("totalActivities", "$count"),
+                                        Projections.computed("activities", "$activities")
+                                )
+                        )
+                )
+        );
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "actividades-y-total-por-usuario.json");
     }
 }

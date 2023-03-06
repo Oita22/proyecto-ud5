@@ -3,20 +3,21 @@ package org.example.dao;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.IndexOptions;
-import com.mongodb.client.model.Indexes;
-import com.mongodb.client.model.Updates;
+import com.mongodb.client.model.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
+import org.example.export_json.JsonExporter;
+import org.example.export_json.SaveDirectory;
 import org.example.model.User;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
@@ -27,6 +28,7 @@ public class UserDAO {
 
     private final MongoClient mongoClient;
     private final MongoCollection<User> userCollection;
+    private final MongoCollection<Document> documentCollection;
 
     public UserDAO() {
         CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
@@ -41,6 +43,8 @@ public class UserDAO {
 
         MongoDatabase database = mongoClient.getDatabase(DB_NAME);
         userCollection = database.getCollection(COLLECTION_NAME, User.class);
+
+        documentCollection = database.getCollection(COLLECTION_NAME);
 
         // Restrictions
         applyRestrictions();
@@ -105,7 +109,7 @@ public class UserDAO {
      * Búsqueda de un Usuario por su nombre de usuario y estado
      *
      * @param username Nombre de usuario
-     * @param enabled Estado. True - Activo | False - Ban
+     * @param enabled  Estado. True - Activo | False - Ban
      * @return FindIterable<Event> con el resultado de la consulta
      */
     public User findByUsernameAndEnable(String username, boolean enabled) {
@@ -121,7 +125,7 @@ public class UserDAO {
      * Actualiza el apellido de un Usuario que busca por su nombre de usuario
      *
      * @param username String - Nombre de usuario
-     * @param surname String nuevo apellido
+     * @param surname  String nuevo apellido
      * @return User asociado al username recibido
      */
     public User updateSurnameByUsername(String username, String surname) {
@@ -137,7 +141,7 @@ public class UserDAO {
      * Actualiza el campo profile.birth_year de todos los usuarios que ese campo sea menor del año recibido
      * y lo aumenta en la cantidad pasada
      *
-     * @param year int - Año hasta el que se modificará
+     * @param year      int - Año hasta el que se modificará
      * @param increment int - Cantidad a aumentar
      */
     public void updateBirthYearIncreaseByYear(int year, int increment) {
@@ -145,5 +149,57 @@ public class UserDAO {
                 Filters.lt("profile.birth_year", year),
                 Updates.inc("profile.birth_year", increment)
         );
+    }
+
+    // ----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Obtiene la cantidad de usuarios por año de nacimiento
+     */
+    public void getUserCountPerBirthYear() {
+        List<Bson> pipeline = Arrays.asList(
+                Aggregates.group(
+                        new Document("$year",
+                                new Document("$dateFromParts",
+                                        new Document("year", "$profile.birth_year")
+                                                .append("month", 1)
+                                                .append("day", 1)
+                                )
+                        ),
+                        Accumulators.sum("userCount", 1)
+                )
+        );
+
+        AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "cantidad-usuarios-birth-year.json");
+    }
+
+    /**
+     * Obtiene la lista de usuarios que no tienen eventos asociados
+     */
+    public void getUsersWithNoEvents() {
+        List<Bson> pipeline = Arrays.asList(
+                Aggregates.lookup("events", "events", "_id", "events"),
+                Aggregates.match(Filters.size("events", 0))
+        );
+
+        AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "usuarios-sin-eventos.json");
+    }
+
+    /**
+     * Obtiene la cantidad de usuarios por cada rol
+     */
+    public void getUserCountPerRole() {
+        List<Bson> pipeline = Arrays.asList(
+                Aggregates.unwind("$roles"),
+                Aggregates.group("$roles.role", Accumulators.sum("userCount", 1))
+        );
+
+        AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
+
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "usuarios-por-rol.json");
     }
 }

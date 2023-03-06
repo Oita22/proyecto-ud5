@@ -1,0 +1,62 @@
+[
+  {
+    "userCount": 4,
+    "_id": {
+      "$oid": "6403b7e0364f263a103349fa"
+    }
+  },
+  {
+    "userCount": 3,
+    "_id": {
+      "$oid": "6403b7e0364f263a103349fb"
+    }
+  },
+  {
+    "userCount": 5,
+    "_id": {
+      "$oid": "6403c14bb01432717759aa76"
+    }
+  },
+  {
+    "userCount": 4,
+    "_id": {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    }
+  },
+  {
+    "userCount": 6,
+    "_id": {
+      "$oid": "6403c20cc9473f73d39960b5"
+    }
+  },
+  {
+    "userCount": 0,
+    "_id": {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    }
+  },
+  {
+    "userCount": 5,
+    "_id": {
+      "$oid": "64040737d89f423df1b21d0a"
+    }
+  },
+  {
+    "userCount": 6,
+    "_id": {
+      "$oid": "64040737d89f423df1b21d0b"
+    }
+  },
+  {
+    "userCount": 5,
+    "_id": {
+      "$oid": "640419518e457c7557bce16e"
+    }
+  },
+  {
+    "userCount": 2,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    }
+  }
+]

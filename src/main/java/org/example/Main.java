@@ -202,7 +202,22 @@ public class Main {
      * Operaciones de agregación pipeline
      */
     private static void aggregationPipelineOperations() {
-        eventDAO.getCountOfEventsCreatedGroupByUserId();
+        //eventDAO.getCountOfEventsCreatedGroupByUserId(); // 1 - Agrupación
+        //activityDAO.getCountActivitiesGroupByFinished(); // 2 - Agrupación
+        //userDAO.getUserCountPerBirthYear(); // 3 - Agrupación
+        //userDAO.getUserCountPerRole(); // 4 - Agrupación
+
+
+        //eventDAO.getAverageBirthYearOfOwners(); // 1 - Lookup
+        //activityDAO.getActivitiesAndTotalCountByUser(); // 2 - Lookup
+        //eventDAO.getCountUserJoinedByEvent(); // 3 - Lookup
+        //userDAO.getUsersWithNoEvents(); // 4 - Lookup
+        eventDAO.getEventAndUserListOrderByAsc(); // 5 - lookup
+
+
+        //eventDAO.getEventsInNextDays(7); // 1
+        //eventDAO.getFinishedEventsOrderByDesc(); // 2
+
     }
 
 

@@ -1,0 +1,64 @@
+[
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "owner": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    "tittle": "Tittle Owner",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6a"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    "tittle": "Tittle426801947",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe61"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6a"
+      }
+    ]
+  }
+]
