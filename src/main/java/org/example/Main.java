@@ -27,8 +27,8 @@ public class Main {
         activityDAO = new ActivityDAO();
 
         filtersOperations();
-        //aggregationPipelineOperations();
-        //updateOperations();
+        aggregationPipelineOperations();
+        updateOperations();
     }
 
     /**
@@ -138,7 +138,7 @@ public class Main {
 
 
         // Actualiza el estado de una actividad con un ID específico
-        System.out.println("\n".repeat(2) + "\t\tActualiza el estado de una actividad con un ID específico: 6404cd79d3aee33e0f33fe6f");
+        System.out.println("\n".repeat(2) + "\t\tActualiza el estado de una actividad (finished) con un ID específico: 6404cd79d3aee33e0f33fe6f");
         Activity activity = activityDAO.findByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6f"));
         System.out.println(activity);
         System.out.println(activityDAO.updateFinishedByActivityId(activity.getId(), !activity.isFinished()));
@@ -154,12 +154,12 @@ public class Main {
         // Actualiza la fecha de una actividad con un ID específico
         System.out.println("\n".repeat(2) + "\t\tActualiza la fecha de una actividad con un ID específico: 6404cd79d3aee33e0f33fe6f");
         System.out.println(activityDAO.findByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6f")));
-        System.out.println(activityDAO.updateDateByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6f"), LocalDate.of(2000, 3, 4)));
+        System.out.println(activityDAO.updateDateByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6f"), LocalDate.of(2002, 2, 2)));
 
 
         // Actualiza la hora de una actividad con un ID específico
         DurationTime[] durationTimes = {DurationTime.SHORT, DurationTime.MEDIUM, DurationTime.LONG};
-        System.out.println("\n".repeat(4) + "\t\tActualiza el tipo de duración de una actividad con un ID específico");
+        System.out.println("\n".repeat(4) + "\t\tActualizala hora de una actividad con un ID específico: 6404cd79d3aee33e0f33fe6e");
         System.out.println(activityDAO.findByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6e")));
         System.out.println(activityDAO.updateTimeByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6e"), LocalTime.now()));
 
@@ -169,20 +169,20 @@ public class Main {
 
 
         // Actualiza el título y la descripción de un evento con un ID específico
-        System.out.println("\n".repeat(2) + "\t\tActualiza el título y la descripción de un evento con un ID específico");
+        System.out.println("\n".repeat(2) + "\t\tActualiza el título y la descripción de un evento con un ID específico: 6403c1cb14c64723cfdfad8d");
         System.out.println(eventDAO.findByEventId(new ObjectId("6403c1cb14c64723cfdfad8d")));
         System.out.println(eventDAO.updateTittleAndDescriptionByEventId(new ObjectId("6403c1cb14c64723cfdfad8d"),
                 "Nuevo título mod" + random.nextInt(), "Nueva descripción mod" + random.nextInt()));
 
 
         // Actualiza el estado de todos los eventos con una fecha específica
-        System.out.println("\n".repeat(2) + "\t\tActualiza el estado de todos los eventos con una fecha específica");
+        System.out.println("\n".repeat(2) + "\t\tActualiza el estado de todos los eventos con una fecha específica: 2023-3-4");
         eventDAO.updateStateByEventDate(LocalDate.of(2023, 3, 4), random.nextBoolean());
-        System.out.println("VER EN LA DB");
+        System.out.println("VER EN LA DB > {date: ISODate('2023-03-04T00:00:00.000+00:00')}");
 
 
         // Actualiza la fecha del Evento del que recibe su ID por parámetro
-        System.out.println("\n".repeat(4) + "\t\tActualiza la fecha del Evento del que recibe su ID por parámetro");
+        System.out.println("\n".repeat(4) + "\t\tActualiza la fecha del Evento del que recibe su ID por parámetro: 6403b7e0364f263a103349fb");
         System.out.println(eventDAO.findByEventId(new ObjectId("6403b7e0364f263a103349fb")));
         System.out.println(eventDAO.updateDateByEventId(new ObjectId("6403b7e0364f263a103349fb"), LocalDate.now()));
 
@@ -192,16 +192,16 @@ public class Main {
 
 
         // Actualiza el apellido de un Usuario que busca por su nombre de usuario
-        System.out.println("\n".repeat(2) + "\t\tActualiza el apellido de un Usuario que busca por su nombre de usuario");
+        System.out.println("\n".repeat(2) + "\t\tActualiza el apellido de un Usuario que busca por su nombre de usuario: User533551192");
         System.out.println(userDAO.findByUsername("User533551192"));
         System.out.println(userDAO.updateSurnameByUsername("User533551192", "Apellido mod" + random.nextInt()));
 
 
         // Actualiza el campo profile.birth_year de todos los usuarios que ese campo sea menor del año recibido y lo aumenta en la cantidad pasada
         System.out.println("\n".repeat(2) + "\t\tActualiza el campo profile.birth_year de todos los usuarios que ese campo sea menor " +
-                "del año recibido y lo aumenta en la cantidad pasada");
+                "del año recibido y lo aumenta en la cantidad pasada: 1950, incremento=1");
         userDAO.updateBirthYearIncreaseByYear(1950, 1);
-        System.out.println("VER EN LA DB");
+        System.out.println("VER EN LA DB > {\"profile.birth_year\": {$lt: 1950}}");
     }
 
 
