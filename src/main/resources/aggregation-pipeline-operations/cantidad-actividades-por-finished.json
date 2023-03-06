@@ -1,10 +1,10 @@
 [
   {
-    "count": 17,
-    "_id": false
-  },
-  {
     "count": 2,
     "_id": true
+  },
+  {
+    "count": 17,
+    "_id": false
   }
 ]

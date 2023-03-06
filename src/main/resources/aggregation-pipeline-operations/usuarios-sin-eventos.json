@@ -1,29 +1,36 @@
 [
   {
     "profile": {
-      "phone": "987654321",
-      "surname": "123456789",
-      "name": "Usuario",
+      "phone": "99058154",
+      "surname": "1070794892",
+      "name": "User",
       "_id": {
-        "$oid": "640540949b424165d76a67fb"
+        "$oid": "64059c4f9e66285fa7bb9e60"
       },
-      "birth_year": 1928
+      "birth_year": 1971
     },
     "roles": [
       {
         "role": "USER",
         "role_value": 2,
         "_id": {
-          "$oid": "640540949b424165d76a67fa"
+          "$oid": "64059c4f9e66285fa7bb9e5e"
+        }
+      },
+      {
+        "role": "ADMIN",
+        "role_value": 0,
+        "_id": {
+          "$oid": "64059c4f9e66285fa7bb9e5c"
         }
       }
     ],
     "_id": {
-      "$oid": "640540949b424165d76a67f9"
+      "$oid": "64059c4f9e66285fa7bb9e5f"
     },
-    "email": "user123456789@email.com",
-    "enabled": true,
+    "email": "user1070794892@email.com",
+    "enabled": false,
     "events": [],
-    "username": "Usuario123456789"
+    "username": "User1070794892"
   }
 ]

@@ -426,4 +426,36 @@
     }
   ],
   "username": "User533551192"
+},{
+  "_id": {
+    "$oid": "64059c4f9e66285fa7bb9e5f"
+  },
+  "email": "user1070794892@email.com",
+  "enabled": false,
+  "profile": {
+    "birth_year": 1971,
+    "_id": {
+      "$oid": "64059c4f9e66285fa7bb9e60"
+    },
+    "name": "User",
+    "phone": "99058154",
+    "surname": "1070794892"
+  },
+  "roles": [
+    {
+      "_id": {
+        "$oid": "64059c4f9e66285fa7bb9e5e"
+      },
+      "role": "USER",
+      "role_value": 2
+    },
+    {
+      "_id": {
+        "$oid": "64059c4f9e66285fa7bb9e5c"
+      },
+      "role": "ADMIN",
+      "role_value": 0
+    }
+  ],
+  "username": "User1070794892"
 }]

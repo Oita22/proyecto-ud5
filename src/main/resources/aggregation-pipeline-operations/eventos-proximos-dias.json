@@ -1,7 +1,7 @@
 [
   {
     "date": {
-      "$date": 1678406400000
+      "$date": 1679184000000
     },
     "description": "Description",
     "finished": false,
@@ -26,14 +26,14 @@
   },
   {
     "date": {
-      "$date": 1678579200000
+      "$date": 1679097600000
     },
-    "description": "Description",
+    "description": "Nueva descripción mod1565279041",
     "finished": false,
     "_id": {
-      "$oid": "6403c14bb01432717759aa76"
+      "$oid": "6403c1cb14c64723cfdfad8d"
     },
-    "tittle": "Tittle-594294049",
+    "tittle": "Nuevo título mod1641100342",
     "users": [
       {
         "$oid": "6403bc482a489b7f6489409a"
@@ -42,13 +42,10 @@
         "$oid": "6403c029001813739981d98e"
       },
       {
-        "$oid": "640419518e457c7557bce16a"
-      },
-      {
-        "$oid": "6404cd79d3aee33e0f33fe57"
-      },
-      {
         "$oid": "6404cd79d3aee33e0f33fe61"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6a"
       }
     ]
   }

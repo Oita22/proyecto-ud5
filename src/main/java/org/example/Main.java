@@ -215,7 +215,7 @@ public class Main {
           //eventDAO.getEventAndUserListOrderByAsc(); // 5 - lookup
 
 
-        eventDAO.getEventsInNextDays(7); // 1
+        eventDAO.getEventsInNextDays(30); // 1
         eventDAO.getFinishedEventsOrderByDesc(); // 2
 
     }
