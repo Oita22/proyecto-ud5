@@ -1,4 +1,4 @@
-package org.example.export_json;
+package org.example.export;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.AggregateIterable;

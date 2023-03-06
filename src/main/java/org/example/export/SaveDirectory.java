@@ -1,4 +1,4 @@
-package org.example.export_json;
+package org.example.export;
 
 public enum SaveDirectory {
     AGGREGATION("src/main/resources/aggregation-pipeline-operations/"),

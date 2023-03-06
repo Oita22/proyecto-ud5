@@ -12,8 +12,8 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
-import org.example.export_json.JsonExporter;
-import org.example.export_json.SaveDirectory;
+import org.example.export.JsonExporter;
+import org.example.export.SaveDirectory;
 import org.example.model.Event;
 
 import java.time.LocalDate;
@@ -257,7 +257,7 @@ public class EventDAO {
 
         AggregateIterable<Document> result = documentCollection.aggregate(pipeline);
 
-        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "eventos-con-mas-usuarios.json");
+        JsonExporter.exportToJson(result, SaveDirectory.AGGREGATION, "cantidad-usuario-por-evento.json");
     }
 
     /**
