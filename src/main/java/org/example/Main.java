@@ -26,22 +26,25 @@ public class Main {
         eventDAO = new EventDAO();
         activityDAO = new ActivityDAO();
 
-        //filtersOperations();
+        filtersOperations();
+        //aggregationPipelineOperations();
         //updateOperations();
-        aggregationPipelineOperations();
     }
 
     /**
      * Consultas usando filtros y proyecciones
      */
     private static void filtersOperations() {
+        System.out.println("-".repeat(200));
+        System.out.println("\t".repeat(10) + "- CONSULTAS -\n\n");
+
         // Búsqueda de un Usuario por su nombre de usuario
-        System.out.println("\t\tBúsqueda de un Usuario por su nombre de usuario");
+        System.out.println("\t\tBúsqueda de un Usuario por su nombre de usuario: Oita");
         System.out.println(userDAO.findByUsername("Oita"));
 
 
         // Búsqueda de un Usuario por su username y estado de actividad
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de un Usuario por nombre de usuario y estado");
+        System.out.println("\n".repeat(2) + "\t\tBúsqueda de un Usuario por nombre de usuario y estado: Oita, enable: true");
         System.out.println(userDAO.findByUsernameAndEnable("Oita", true));
 
 
@@ -50,7 +53,7 @@ public class Main {
 
 
         // Búsqueda de actividades por usuario y estado
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de actividades por usuario y estado");
+        System.out.println("\n".repeat(4) + "\t\tBúsqueda de actividades por usuario y estado: Oita, finished: true");
         FindIterable<Activity> activities = activityDAO.findByUserIdAndFinished(
                 userDAO.findByUsername("Oita").getId(),
                 true
@@ -72,7 +75,7 @@ public class Main {
 
 
         // Búsqueda de actividades entre dos fechas dadas
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de actividades entre dos fechas dadas: 2021-3-4 : 2023-3-5");
+        System.out.println("\n".repeat(2) + "\t\tBúsqueda de actividades entre dos fechas dadas: 2021-3-4 / 2023-3-5");
         FindIterable<Activity> activities2 = activityDAO.findBetweenDates(
                 LocalDate.of(2021, 3, 4),
                 LocalDate.of(2023, 3, 5));
@@ -85,7 +88,7 @@ public class Main {
 
 
         // Búsqueda de un evento por su título
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de un evento por su título: Event172892226");
+        System.out.println("\n".repeat(4) + "\t\tBúsqueda de un evento por su título: Event172892226");
         System.out.println(eventDAO.findByTittle("Event172892226"));
 
 
@@ -97,14 +100,15 @@ public class Main {
 
 
         // Búsqueda de los eventos en los que está inscrito un usuario
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de los eventos en los que está inscrito un usuario");
+        System.out.println("\n".repeat(2) + "\t\tBúsqueda de los eventos en los que está inscrito un usuario: Oita");
         FindIterable<Event> events1 = eventDAO.findByUserInEvents(userDAO.findByUsername("Oita").getId());
         for (Event event : events1)
             System.out.println(event);
 
 
         // Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
-        System.out.println("\n".repeat(2) + "\t\tBúsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito");
+        System.out.println("\n".repeat(2) + "\t\tBúsqueda de los Eventos comprendidos entre dos fechas y que al " +
+                "menos tienen un usuario inscrito: 2022-1-1 / <hoy>");
         FindIterable<Event> events2 = eventDAO.findByBetweenDateAndAtLeastOneUser(LocalDate.of(2022, 1, 1), LocalDate.now());
         for (Event event : events2)
             System.out.println(event);
@@ -122,6 +126,9 @@ public class Main {
      * Operaciones de actualización
      */
     private static void updateOperations() {
+        System.out.println("-".repeat(200));
+        System.out.println("\t".repeat(10) + "- ACTUALIZACIONES -\n\n");
+
         // Actualiza el título de una actividad con un ID específico:
         System.out.println("\t\tActualiza el título de una actividad con un ID específico: 6404cd79d3aee33e0f33fe6f");
         System.out.println(activityDAO.findByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6f")));
@@ -152,7 +159,7 @@ public class Main {
 
         // Actualiza la hora de una actividad con un ID específico
         DurationTime[] durationTimes = {DurationTime.SHORT, DurationTime.MEDIUM, DurationTime.LONG};
-        System.out.println("\n".repeat(2) + "\t\tActualiza el tipo de duración de una actividad con un ID específico");
+        System.out.println("\n".repeat(4) + "\t\tActualiza el tipo de duración de una actividad con un ID específico");
         System.out.println(activityDAO.findByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6e")));
         System.out.println(activityDAO.updateTimeByActivityId(new ObjectId("6404cd79d3aee33e0f33fe6e"), LocalTime.now()));
 
@@ -175,7 +182,7 @@ public class Main {
 
 
         // Actualiza la fecha del Evento del que recibe su ID por parámetro
-        System.out.println("\n".repeat(2) + "\t\tActualiza la fecha del Evento del que recibe su ID por parámetro");
+        System.out.println("\n".repeat(4) + "\t\tActualiza la fecha del Evento del que recibe su ID por parámetro");
         System.out.println(eventDAO.findByEventId(new ObjectId("6403b7e0364f263a103349fb")));
         System.out.println(eventDAO.updateDateByEventId(new ObjectId("6403b7e0364f263a103349fb"), LocalDate.now()));
 

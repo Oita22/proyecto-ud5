@@ -120,7 +120,6 @@ public class ActivityDAO {
      * @return FindIterable<Activity> con el resultado de la consulta
      */
     public FindIterable<Activity> findBetweenDates(LocalDate startDate, LocalDate endDate) {
-        System.out.println(startDate + " - " + endDate);
         Bson query = and(Filters.gte("date", startDate),
                 Filters.lt("date", endDate));
 

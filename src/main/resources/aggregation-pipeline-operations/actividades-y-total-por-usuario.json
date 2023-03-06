@@ -5,6 +5,84 @@
         "date": {
           "$date": 1677974400000
         },
+        "description": "Description",
+        "duration_time": "MEDIUM",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe63"
+        },
+        "time": {
+          "$date": 65545965
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe61"
+        },
+        "tittle": "Activity388791618"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "LONG",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe64"
+        },
+        "time": {
+          "$date": 65545967
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe61"
+        },
+        "tittle": "Activity-231122286"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "MEDIUM",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe65"
+        },
+        "time": {
+          "$date": 65545969
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe61"
+        },
+        "tittle": "Activity-1038542804"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "SHORT",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe66"
+        },
+        "time": {
+          "$date": 65545971
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe61"
+        },
+        "tittle": "Activity450238987"
+      }
+    ],
+    "totalActivities": 4,
+    "user": "User-648965095"
+  },
+  {
+    "activities": [
+      {
+        "date": {
+          "$date": 1677974400000
+        },
         "description": "Description 1469804349 - Modificada",
         "duration_time": "MEDIUM",
         "finished": false,
@@ -108,18 +186,36 @@
           "$date": 1677974400000
         },
         "description": "Description",
+        "duration_time": "LONG",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe59"
+        },
+        "time": {
+          "$date": 65545945
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe57"
+        },
+        "tittle": "Activity2087432780"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
         "duration_time": "MEDIUM",
         "finished": false,
         "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe63"
+          "$oid": "6404cd79d3aee33e0f33fe5a"
         },
         "time": {
-          "$date": 65545965
+          "$date": 65545954
         },
         "user": {
-          "$oid": "6404cd79d3aee33e0f33fe61"
+          "$oid": "6404cd79d3aee33e0f33fe57"
         },
-        "tittle": "Activity388791618"
+        "tittle": "Activity1203229766"
       },
       {
         "date": {
@@ -129,15 +225,15 @@
         "duration_time": "LONG",
         "finished": false,
         "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe64"
+          "$oid": "6404cd79d3aee33e0f33fe5b"
         },
         "time": {
-          "$date": 65545967
+          "$date": 65545956
         },
         "user": {
-          "$oid": "6404cd79d3aee33e0f33fe61"
+          "$oid": "6404cd79d3aee33e0f33fe57"
         },
-        "tittle": "Activity-231122286"
+        "tittle": "Activity-74956027"
       },
       {
         "date": {
@@ -147,37 +243,19 @@
         "duration_time": "MEDIUM",
         "finished": false,
         "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe65"
+          "$oid": "6404cd79d3aee33e0f33fe5c"
         },
         "time": {
-          "$date": 65545969
+          "$date": 65545958
         },
         "user": {
-          "$oid": "6404cd79d3aee33e0f33fe61"
+          "$oid": "6404cd79d3aee33e0f33fe57"
         },
-        "tittle": "Activity-1038542804"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "SHORT",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe66"
-        },
-        "time": {
-          "$date": 65545971
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe61"
-        },
-        "tittle": "Activity450238987"
+        "tittle": "Activity1459148647"
       }
     ],
     "totalActivities": 4,
-    "user": "User-648965095"
+    "user": "User1497185538"
   },
   {
     "activities": [
@@ -281,83 +359,5 @@
     ],
     "totalActivities": 6,
     "user": "Oita"
-  },
-  {
-    "activities": [
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "LONG",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe59"
-        },
-        "time": {
-          "$date": 65545945
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe57"
-        },
-        "tittle": "Activity2087432780"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "MEDIUM",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe5a"
-        },
-        "time": {
-          "$date": 65545954
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe57"
-        },
-        "tittle": "Activity1203229766"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "LONG",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe5b"
-        },
-        "time": {
-          "$date": 65545956
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe57"
-        },
-        "tittle": "Activity-74956027"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "MEDIUM",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe5c"
-        },
-        "time": {
-          "$date": 65545958
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe57"
-        },
-        "tittle": "Activity1459148647"
-      }
-    ],
-    "totalActivities": 4,
-    "user": "User1497185538"
   }
 ]
