@@ -6,6 +6,7 @@
     "owner": {
       "$oid": "6403bc482a489b7f6489409a"
     },
+    "description": "null",
     "finished": true,
     "_id": {
       "$oid": "64040737d89f423df1b21d0b"
@@ -26,9 +27,6 @@
       },
       {
         "$oid": "6404cd79d3aee33e0f33fe61"
-      },
-      {
-        "$oid": "6404cd79d3aee33e0f33fe6a"
       }
     ]
   },
@@ -57,9 +55,6 @@
       },
       {
         "$oid": "6404cd79d3aee33e0f33fe57"
-      },
-      {
-        "$oid": "6404cd79d3aee33e0f33fe61"
       }
     ]
   },
@@ -85,9 +80,6 @@
       },
       {
         "$oid": "6404cd79d3aee33e0f33fe57"
-      },
-      {
-        "$oid": "6404cd79d3aee33e0f33fe61"
       }
     ]
   }

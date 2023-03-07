@@ -1,14 +1,14 @@
 [
   {
-    "userCount": 4,
-    "_id": "ADMIN"
+    "userCount": 7,
+    "_id": "USER"
   },
   {
     "userCount": 2,
     "_id": "MODERATOR"
   },
   {
-    "userCount": 5,
-    "_id": "USER"
+    "userCount": 2,
+    "_id": "ADMIN"
   }
 ]

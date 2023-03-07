@@ -15,6 +15,7 @@ import org.bson.types.ObjectId;
 import org.example.export.JsonExporter;
 import org.example.export.SaveDirectory;
 import org.example.model.Activity;
+import org.example.model.User;
 
 import java.time.*;
 import java.util.Arrays;
@@ -71,11 +72,24 @@ public class ActivityDAO {
         }
     }
 
+    public void removeAll() {
+        activityCollection.deleteMany(new Document());
+    }
+
     public void close() {
         mongoClient.close();
     }
 
     // CONSULTAS
+
+    /**
+     * Busca todas las actividades
+     *
+     * @return FindIterable<Activity> con el resultado de la consulta
+     */
+    public FindIterable<Activity> findAll() {
+        return activityCollection.find();
+    }
 
     /**
      * Busca la Activity que tiene como ID el recibido por parámetros

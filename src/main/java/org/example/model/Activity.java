@@ -1,9 +1,6 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.With;
+import lombok.*;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
@@ -14,6 +11,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @With
+@ToString
 public class Activity {
     @BsonProperty(value = "_id")
     private ObjectId id;
@@ -28,25 +26,72 @@ public class Activity {
     // Many To One - Por referencia
     private ObjectId user;
 
-    public static Activity createActivity(User user) {
-        return new Activity(new ObjectId(),
-                "Tittle",
-                "Description",
-                false,
-                LocalDate.now(),
-                LocalTime.now(),
-                DurationTime.MEDIUM,
-                user.getId());
+    public Activity(ObjectId id, String tittle, String description, boolean finished, LocalDate date, ObjectId user) {
+        this.id = id;
+        this.tittle = tittle;
+        this.description = description;
+        this.finished = finished;
+        this.date = date;
+        this.user = user;
     }
 
-    public static Activity createActivityWithOutDescription() {
-        Activity activity = new Activity();
-        activity.setId(new ObjectId());
-        activity.setTittle("Title without Description and Time");
-        activity.setFinished(false);
-        activity.setDate(LocalDate.now());
-        activity.setDurationTime(DurationTime.MEDIUM);
+    public Activity(ObjectId id, String tittle, String description, boolean finished, LocalDate date, LocalTime time, ObjectId user) {
+        this.id = id;
+        this.tittle = tittle;
+        this.description = description;
+        this.finished = finished;
+        this.date = date;
+        this.time = time;
+        this.user = user;
+    }
 
-        return activity;
+//    @Override
+//    public String toString() {
+//        String aux = "new Activity(new ObjectId(\"" + id.toString() + "\"), \"" + tittle + "\", \"" + description + "\", " + finished +
+//                ", " + date() + time() + durationTime() + "new ObjectId(\"" + user.toString() + "\")));";
+//
+//        return aux;
+//    }
+    private String date() {
+        if (date != null) {
+            String aux = "LocalDate.of(";
+
+            String[] numbers = date.toString().split("-");
+            aux += numbers[0] + ", " + numbers[1] + ", " + numbers[2] + "), ";
+
+            return aux;
+        }
+        return "";
+    }
+
+    private String time() {
+        if (time != null) {
+            String aux = "LocalTime.of(";
+
+            String[] numbers = time.toString().split(":");
+            aux += numbers[0] + ", " + numbers[1] + ", 0), ";
+
+            return aux;
+        }
+        return "";
+    }
+
+    private String durationTime() {
+        if (durationTime != null) {
+            String aux = "DurationTime.";
+
+            if (durationTime == DurationTime.SHORT)
+                aux += "SHORT";
+
+            else if (durationTime == DurationTime.MEDIUM)
+                aux += "MEDIUM";
+
+            else if (durationTime == DurationTime.LONG)
+                aux += "LONG";
+
+            aux += ", ";
+            return aux;
+        }
+        return "";
     }
 }

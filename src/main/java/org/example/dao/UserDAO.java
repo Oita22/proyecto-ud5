@@ -77,6 +77,10 @@ public class UserDAO {
         }
     }
 
+    public void removeAll() {
+        userCollection.deleteMany(new Document());
+    }
+
     public void close() {
         mongoClient.close();
     }
@@ -86,7 +90,7 @@ public class UserDAO {
      * Consulta empleando filtros.
      * Búsqueda de todos los usuarios de la base de datos
      *
-     * @return FindIterable<Event> con el resultado de la consulta
+     * @return FindIterable<User> con el resultado de la consulta
      */
     public FindIterable<User> findAll() {
         return userCollection.find();

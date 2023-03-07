@@ -1,7 +1,11 @@
 [
   {
     "userCount": 1,
-    "_id": 1971
+    "_id": 2020
+  },
+  {
+    "userCount": 1,
+    "_id": 1998
   },
   {
     "userCount": 1,
@@ -9,7 +13,7 @@
   },
   {
     "userCount": 1,
-    "_id": 2020
+    "_id": 1918
   },
   {
     "userCount": 2,
@@ -17,10 +21,6 @@
   },
   {
     "userCount": 1,
-    "_id": 1918
-  },
-  {
-    "userCount": 1,
-    "_id": 1998
+    "_id": 1971
   }
 ]

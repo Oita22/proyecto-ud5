@@ -26,6 +26,9 @@ public class Main {
         eventDAO = new EventDAO();
         activityDAO = new ActivityDAO();
 
+        drop();
+        LoadData.loadData();
+
         filtersOperations();
         aggregationPipelineOperations();
         updateOperations();
@@ -238,5 +241,15 @@ public class Main {
 
         for (Object o : findIterable)
             System.out.println(o);
+    }
+
+    private static void load(int usersToGenerate) {
+        DataGenerator.generateData(usersToGenerate);
+    }
+
+    private static void drop() {
+        activityDAO.removeAll();
+        eventDAO.removeAll();
+        userDAO.removeAll();
     }
 }

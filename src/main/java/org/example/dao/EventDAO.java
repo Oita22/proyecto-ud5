@@ -72,6 +72,10 @@ public class EventDAO {
         }
     }
 
+    public void removeAll() {
+        eventsCollection.deleteMany(new Document());
+    }
+
     public void close() {
         mongoClient.close();
     }
