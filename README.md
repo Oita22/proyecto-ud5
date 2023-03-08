@@ -17,7 +17,7 @@
    - **findByUserIdAndFinished(ObjectId userId, boolean finished)** - Búsqueda de actividades por un usuario y en un estado concreto
 
 ### 3. EventDAO
-   - **findByTittle(String tittle)** - Búsqueda de unn evento por su título
+   - **findByTittle(String tittle)** - Búsqueda de un evento por su título
    - **findByOwnerId(ObjectId userId)** - Búsqueda de los Eventos de los que es propietario un Usuario
    - **findByUserInEvents(ObjectId userId)** - Búsqueda de los Eventos en los que está inscrito un usuario
    - **findByBetweenDateAndAtLeastOneUser(LocalDate startDate, LocalDate endDate)** - Búsqueda de los Eventos comprendidos entre dos fechas y que al menos tienen un usuario inscrito
