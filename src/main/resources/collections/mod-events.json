@@ -1,0 +1,235 @@
+[
+  {
+    "date": {
+      "$date": 1679184000000
+    },
+    "description": "Description",
+    "finished": false,
+    "_id": {
+      "$oid": "6403b7e0364f263a103349fa"
+    },
+    "tittle": "Tittle",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6a"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1678320000000
+    },
+    "description": "null",
+    "finished": false,
+    "_id": {
+      "$oid": "6403b7e0364f263a103349fb"
+    },
+    "tittle": "Title without Description and Time",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe61"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c14bb01432717759aa76"
+    },
+    "tittle": "Tittle-594294049",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1679097600000
+    },
+    "description": "Nueva descripción mod-198559948",
+    "finished": false,
+    "_id": {
+      "$oid": "6403c1cb14c64723cfdfad8d"
+    },
+    "tittle": "Nuevo título mod-341137931",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe61"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c20cc9473f73d39960b5"
+    },
+    "tittle": "Tittle426801947",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe61"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c24a3b98fe3543ae23a3"
+    },
+    "tittle": "Tittle1059650256"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "owner": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "description": "Description",
+    "finished": false,
+    "_id": {
+      "$oid": "64040737d89f423df1b21d0a"
+    },
+    "tittle": "Tittle Owner",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "owner": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "description": "null",
+    "finished": true,
+    "_id": {
+      "$oid": "64040737d89f423df1b21d0b"
+    },
+    "tittle": "Title - Owner - without Description and Time",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe61"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "owner": {
+      "$oid": "640419518e457c7557bce16a"
+    },
+    "description": "Description -486839229",
+    "finished": true,
+    "_id": {
+      "$oid": "640419518e457c7557bce16e"
+    },
+    "tittle": "Event Final Model",
+    "users": [
+      {
+        "$oid": "640419518e457c7557bce16a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6a"
+      },
+      {
+        "$oid": "6403c029001813739981d98e"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe57"
+      }
+    ]
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "owner": {
+      "$oid": "6404cd79d3aee33e0f33fe57"
+    },
+    "description": "Description",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe5d"
+    },
+    "tittle": "Event172892226",
+    "users": [
+      {
+        "$oid": "6403bc482a489b7f6489409a"
+      }
+    ]
+  }
+]
