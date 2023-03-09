@@ -5,6 +5,8 @@ import org.bson.types.ObjectId;
 import org.example.dao.ActivityDAO;
 import org.example.dao.EventDAO;
 import org.example.dao.UserDAO;
+import org.example.export.JsonExporter;
+import org.example.export.SaveDirectory;
 import org.example.model.*;
 
 import java.time.LocalDate;
@@ -26,12 +28,24 @@ public class Main {
         eventDAO = new EventDAO();
         activityDAO = new ActivityDAO();
 
+        // Restart datos
         drop();
         LoadData.loadData();
 
+        // Exportación colecciones iniciales
+        JsonExporter.exportToJsonCollections(userDAO.findAllDocs(), SaveDirectory.RESET, "users.json");
+        JsonExporter.exportToJsonCollections(activityDAO.findAllDocs(), SaveDirectory.RESET, "activities.json");
+        JsonExporter.exportToJsonCollections(eventDAO.findAllDocs(), SaveDirectory.RESET, "events.json");
+
+        // Operaciones
         filtersOperations();
         aggregationPipelineOperations();
         updateOperations();
+
+        // Exportación después de operaciones
+        JsonExporter.exportToJsonCollections(userDAO.findAllDocs(), SaveDirectory.RESET, "mod-users.json");
+        JsonExporter.exportToJsonCollections(activityDAO.findAllDocs(), SaveDirectory.RESET, "mod-activities.json");
+        JsonExporter.exportToJsonCollections(eventDAO.findAllDocs(), SaveDirectory.RESET, "mod-events.json");
     }
 
     /**

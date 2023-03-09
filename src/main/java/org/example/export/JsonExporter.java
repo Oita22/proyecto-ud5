@@ -2,8 +2,12 @@ package org.example.export;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.AggregateIterable;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
 import org.bson.Document;
+import org.example.model.Activity;
+import org.example.model.Event;
+import org.example.model.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -22,6 +26,23 @@ public class JsonExporter {
     }
 
     public static void exportToJson(AggregateIterable<Document> items, SaveDirectory saveDirectory, String fileName) {
+        MongoCursor<Document> cursor = items.iterator();
+        JSONArray jsonArray = new JSONArray();
+
+        while (cursor.hasNext()) {
+            Document document = cursor.next();
+            JSONObject jsonObject = new JSONObject(document.toJson());
+            jsonArray.put(jsonObject);
+        }
+
+        try (FileWriter file = new FileWriter(saveDirectory.getPath() + fileName)) {
+            file.write(jsonArray.toString());
+        } catch (Exception e) {
+            System.out.println("Error export file: " + fileName + "\nCause: " + e.getMessage());
+        }
+    }
+
+    public static void exportToJsonCollections(FindIterable<Document> items, SaveDirectory saveDirectory, String fileName) {
         MongoCursor<Document> cursor = items.iterator();
         JSONArray jsonArray = new JSONArray();
 

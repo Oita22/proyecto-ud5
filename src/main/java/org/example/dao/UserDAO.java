@@ -7,6 +7,7 @@ import com.mongodb.client.model.*;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+import org.bson.codecs.DocumentCodec;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -85,6 +86,10 @@ public class UserDAO {
         mongoClient.close();
     }
 
+
+    public FindIterable<Document> findAllDocs() {
+        return documentCollection.find();
+    }
 
     /**
      * Consulta empleando filtros.

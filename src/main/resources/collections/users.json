@@ -1,461 +1,435 @@
-[{
-  "_id": {
-    "$oid": "6403bc482a489b7f6489409a"
-  },
-  "activities": [
-    {
-      "$oid": "6403b7fbb9d3c76271a93715"
+[
+  {
+    "activities": [
+      {
+        "$oid": "6403b7fbb9d3c76271a93715"
+      },
+      {
+        "$oid": "6403b7fbb9d3c76271a93716"
+      },
+      {
+        "$oid": "6403bc56a62cd87437d1c5d8"
+      },
+      {
+        "$oid": "6403c7ea1340177d1a800fc0"
+      },
+      {
+        "$oid": "6403c8a8987c3f07ae83544a"
+      }
+    ],
+    "profile": {
+      "phone": "123456789",
+      "surname": "Oitavén",
+      "name": "Iago",
+      "_id": {
+        "$oid": "6403bc482a489b7f6489409b"
+      },
+      "birth_year": 2000
     },
-    {
-      "$oid": "6403b7fbb9d3c76271a93716"
-    },
-    {
-      "$oid": "6403bc56a62cd87437d1c5d8"
-    },
-    {
-      "$oid": "6403c7ea1340177d1a800fc0"
-    },
-    {
-      "$oid": "6403c8a8987c3f07ae83544a"
-    },
-    {
-      "$oid": "64040454232fb46890c6ea7b"
-    }
-  ],
-  "email": "oita@email.com",
-  "enabled": true,
-  "events": [
-    {
-      "$oid": "6403b7e0364f263a103349fa"
-    },
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 2000,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf383681109e"
+        }
+      },
+      {
+        "role": "MODERATOR",
+        "role_value": 1,
+        "_id": {
+          "$oid": "6409a94dde86bf383681109f"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "6403bc482a489b7f6489409b"
+      "$oid": "6403bc482a489b7f6489409a"
     },
-    "name": "Iago",
-    "phone": "123456789",
-    "surname": "Oitavén"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "6403bc482a489b7f6489409c"
+    "email": "oita@email.com",
+    "enabled": true,
+    "events": [
+      {
+        "$oid": "6403b7e0364f263a103349fa"
       },
-      "role": "ADMIN",
-      "role_value": 0
-    },
-    {
-      "_id": {
-        "$oid": "6403bc482a489b7f6489409d"
+      {
+        "$oid": "6403b7e0364f263a103349fb"
       },
-      "role": "MODERATOR",
-      "role_value": 1
-    }
-  ],
-  "username": "Oita"
-},{
-  "_id": {
-    "$oid": "6403c029001813739981d98e"
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      }
+    ],
+    "username": "Oita"
   },
-  "activities": [],
-  "email": "oita2@email.com",
-  "enabled": false,
-  "events": [
-    {
-      "$oid": "6403b7e0364f263a103349fa"
+  {
+    "activities": [],
+    "profile": {
+      "phone": "123456789",
+      "surname": "Oitavén",
+      "name": "Iago 2",
+      "_id": {
+        "$oid": "6403c029001813739981d98f"
+      },
+      "birth_year": 2000
     },
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "640419518e457c7557bce16e"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 2000,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a0"
+        }
+      },
+      {
+        "role": "MODERATOR",
+        "role_value": 1,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a1"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "6403c029001813739981d98f"
+      "$oid": "6403c029001813739981d98e"
     },
-    "name": "Iago 2",
-    "phone": "123456789",
-    "surname": "Oitavén"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "6403c029001813739981d990"
+    "email": "oita2@email.com",
+    "enabled": false,
+    "events": [
+      {
+        "$oid": "6403b7e0364f263a103349fa"
       },
-      "role": "ADMIN",
-      "role_value": 0
-    },
-    {
-      "_id": {
-        "$oid": "6403c029001813739981d991"
+      {
+        "$oid": "6403b7e0364f263a103349fb"
       },
-      "role": "MODERATOR",
-      "role_value": 1
-    }
-  ],
-  "username": "Oita2"
-},{
-  "_id": {
-    "$oid": "640419518e457c7557bce16a"
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      },
+      {
+        "$oid": "640419518e457c7557bce16e"
+      }
+    ],
+    "username": "Oita2"
   },
-  "activities": [
-    {
-      "$oid": "640419518e457c7557bce16d"
-    }
-  ],
-  "email": "email-96750632@email.com",
-  "enabled": true,
-  "events": [
-    {
-      "$oid": "640419518e457c7557bce16e"
+  {
+    "activities": [],
+    "profile": {
+      "phone": "159482630",
+      "surname": "1629524261",
+      "name": "User1629524261",
+      "_id": {
+        "$oid": "640419518e457c7557bce16b"
+      },
+      "birth_year": 1998
     },
-    {
-      "$oid": "6403b7e0364f263a103349fa"
-    },
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 1998,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a2"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "640419518e457c7557bce16b"
+      "$oid": "640419518e457c7557bce16a"
     },
-    "name": "User1629524261",
-    "phone": "159482630",
-    "surname": "1629524261"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "640419518e457c7557bce16c"
+    "email": "email-96750632@email.com",
+    "enabled": true,
+    "events": [
+      {
+        "$oid": "640419518e457c7557bce16e"
       },
-      "role": "USER",
-      "role_value": 2
-    }
-  ],
-  "username": "User1629524261"
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe57"
+      {
+        "$oid": "6403b7e0364f263a103349fa"
+      },
+      {
+        "$oid": "6403b7e0364f263a103349fb"
+      },
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      }
+    ],
+    "username": "User1629524261"
   },
-  "activities": [
-    {
-      "$oid": "6404cd79d3aee33e0f33fe59"
+  {
+    "activities": [
+      {
+        "$oid": "6404cd79d3aee33e0f33fe59"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe5a"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe5b"
+      }
+    ],
+    "profile": {
+      "phone": "398345372",
+      "surname": "1497185538",
+      "name": "User1497185538",
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe58"
+      },
+      "birth_year": 1918
     },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5a"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5b"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5c"
-    }
-  ],
-  "email": "email1497185538@email.com",
-  "enabled": true,
-  "events": [
-    {
-      "$oid": "6403b7e0364f263a103349fa"
-    },
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "640419518e457c7557bce16e"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 1918,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a3"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "6404cd79d3aee33e0f33fe58"
+      "$oid": "6404cd79d3aee33e0f33fe57"
     },
-    "name": "User1497185538",
-    "phone": "398345372",
-    "surname": "1497185538"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "6404cd79d3aee33e0f33fe56"
+    "email": "email1497185538@email.com",
+    "enabled": true,
+    "events": [
+      {
+        "$oid": "6403b7e0364f263a103349fa"
       },
-      "role": "USER",
-      "role_value": 2
-    }
-  ],
-  "username": "User1497185538"
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe61"
+      {
+        "$oid": "6403b7e0364f263a103349fb"
+      },
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      },
+      {
+        "$oid": "640419518e457c7557bce16e"
+      }
+    ],
+    "username": "User1497185538"
   },
-  "activities": [
-    {
-      "$oid": "6404cd79d3aee33e0f33fe63"
+  {
+    "activities": [
+      {
+        "$oid": "6404cd79d3aee33e0f33fe63"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe64"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe65"
+      }
+    ],
+    "profile": {
+      "phone": "213179365",
+      "surname": "-648965095",
+      "name": "User-648965095",
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe62"
+      },
+      "birth_year": 2020
     },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe64"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe65"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe66"
-    }
-  ],
-  "email": "email-648965095@email.com",
-  "enabled": true,
-  "events": [
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403b7e0364f263a103349fa"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "640419518e457c7557bce16e"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 2020,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a4"
+        }
+      },
+      {
+        "role": "ADMIN",
+        "role_value": 0,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a5"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "6404cd79d3aee33e0f33fe62"
+      "$oid": "6404cd79d3aee33e0f33fe61"
     },
-    "name": "User-648965095",
-    "phone": "213179365",
-    "surname": "-648965095"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "6404cd79d3aee33e0f33fe60"
+    "email": "email-648965095@email.com",
+    "enabled": true,
+    "events": [
+      {
+        "$oid": "6403b7e0364f263a103349fb"
       },
-      "role": "USER",
-      "role_value": 2
-    },
-    {
-      "_id": {
-        "$oid": "6404cd79d3aee33e0f33fe5f"
+      {
+        "$oid": "6403b7e0364f263a103349fa"
       },
-      "role": "ADMIN",
-      "role_value": 0
-    }
-  ],
-  "username": "User-648965095"
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe6a"
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      },
+      {
+        "$oid": "640419518e457c7557bce16e"
+      }
+    ],
+    "username": "User-648965095"
   },
-  "activities": [
-    {
-      "$oid": "6404cd79d3aee33e0f33fe6c"
+  {
+    "activities": [
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6c"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6d"
+      },
+      {
+        "$oid": "6404cd79d3aee33e0f33fe6e"
+      }
+    ],
+    "profile": {
+      "phone": "481507216",
+      "surname": "Apellido mod-30269579",
+      "name": "User533551192",
+      "_id": {
+        "$oid": "6404cd79d3aee33e0f33fe6b"
+      },
+      "birth_year": 2004
     },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe6d"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe6e"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe6f"
-    }
-  ],
-  "email": "email533551192@email.com",
-  "enabled": true,
-  "events": [
-    {
-      "$oid": "6403b7e0364f263a103349fa"
-    },
-    {
-      "$oid": "640419518e457c7557bce16e"
-    },
-    {
-      "$oid": "6403b7e0364f263a103349fb"
-    },
-    {
-      "$oid": "6403c14bb01432717759aa76"
-    },
-    {
-      "$oid": "6403c1cb14c64723cfdfad8d"
-    },
-    {
-      "$oid": "6403c20cc9473f73d39960b5"
-    },
-    {
-      "$oid": "6403c24a3b98fe3543ae23a3"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0a"
-    },
-    {
-      "$oid": "64040737d89f423df1b21d0b"
-    },
-    {
-      "$oid": "6404cd79d3aee33e0f33fe5d"
-    }
-  ],
-  "profile": {
-    "birth_year": 2004,
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a6"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "6404cd79d3aee33e0f33fe6b"
+      "$oid": "6404cd79d3aee33e0f33fe6a"
     },
-    "name": "User533551192",
-    "phone": "481507216",
-    "surname": "Apellido mod-30269579"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "6404cd79d3aee33e0f33fe69"
+    "email": "email533551192@email.com",
+    "enabled": true,
+    "events": [
+      {
+        "$oid": "6403b7e0364f263a103349fa"
       },
-      "role": "USER",
-      "role_value": 2
-    }
-  ],
-  "username": "User533551192"
-},{
-  "_id": {
-    "$oid": "64059c4f9e66285fa7bb9e5f"
+      {
+        "$oid": "640419518e457c7557bce16e"
+      },
+      {
+        "$oid": "6403b7e0364f263a103349fb"
+      },
+      {
+        "$oid": "6403c14bb01432717759aa76"
+      },
+      {
+        "$oid": "6403c1cb14c64723cfdfad8d"
+      },
+      {
+        "$oid": "6403c20cc9473f73d39960b5"
+      },
+      {
+        "$oid": "6403c24a3b98fe3543ae23a3"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0a"
+      },
+      {
+        "$oid": "64040737d89f423df1b21d0b"
+      }
+    ],
+    "username": "User533551192"
   },
-  "email": "user1070794892@email.com",
-  "enabled": false,
-  "profile": {
-    "birth_year": 1971,
+  {
+    "profile": {
+      "phone": "99058154",
+      "surname": "1070794892",
+      "name": "User",
+      "_id": {
+        "$oid": "64059c4f9e66285fa7bb9e60"
+      },
+      "birth_year": 1971
+    },
+    "roles": [
+      {
+        "role": "USER",
+        "role_value": 2,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a7"
+        }
+      },
+      {
+        "role": "ADMIN",
+        "role_value": 0,
+        "_id": {
+          "$oid": "6409a94dde86bf38368110a8"
+        }
+      }
+    ],
     "_id": {
-      "$oid": "64059c4f9e66285fa7bb9e60"
+      "$oid": "64059c4f9e66285fa7bb9e5f"
     },
-    "name": "User",
-    "phone": "99058154",
-    "surname": "1070794892"
-  },
-  "roles": [
-    {
-      "_id": {
-        "$oid": "64059c4f9e66285fa7bb9e5e"
-      },
-      "role": "USER",
-      "role_value": 2
-    },
-    {
-      "_id": {
-        "$oid": "64059c4f9e66285fa7bb9e5c"
-      },
-      "role": "ADMIN",
-      "role_value": 0
-    }
-  ],
-  "username": "User1070794892"
-}]
+    "email": "user1070794892@email.com",
+    "enabled": false,
+    "username": "User1070794892"
+  }
+]

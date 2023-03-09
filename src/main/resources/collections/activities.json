@@ -1,385 +1,333 @@
-[{
-  "_id": {
-    "$oid": "6403b7fbb9d3c76271a93715"
+[
+  {
+    "date": {
+      "$date": 1614816000000
+    },
+    "description": "Description",
+    "finished": false,
+    "_id": {
+      "$oid": "6403b7fbb9d3c76271a93715"
+    },
+    "time": {
+      "$date": 80880000
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "Tittle"
   },
-  "date": {
-    "$date": {
-      "$numberLong": "1614816000000"
-    }
+  {
+    "date": {
+      "$date": 1614988800000
+    },
+    "description": "Nueva descripción mod394472134",
+    "finished": false,
+    "_id": {
+      "$oid": "6403b7fbb9d3c76271a93716"
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "Title without Description and Time"
   },
-  "description": "Description",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "80907422"
-    }
+  {
+    "date": {
+      "$date": 1614988800000
+    },
+    "description": "Nueva descripción mod394472134",
+    "finished": false,
+    "_id": {
+      "$oid": "6403bc56a62cd87437d1c5d8"
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "New Tittle"
   },
-  "tittle": "Tittle",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c7ea1340177d1a800fc0"
+    },
+    "time": {
+      "$date": 84960000
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "Tittle524703813"
+  },
+  {
+    "date": {
+      "$date": 1677888000000
+    },
+    "description": "Description",
+    "finished": true,
+    "_id": {
+      "$oid": "6403c8a8987c3f07ae83544a"
+    },
+    "time": {
+      "$date": 85140000
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "Tittle1044260530"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "64040454232fb46890c6ea7b"
+    },
+    "time": {
+      "$date": 14040000
+    },
+    "user": {
+      "$oid": "6403bc482a489b7f6489409a"
+    },
+    "tittle": "Tittle"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description 1469804349 - Modificada",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "640419518e457c7557bce16d"
+    },
+    "time": {
+      "$date": 19380000
+    },
+    "user": {
+      "$oid": "640419518e457c7557bce16a"
+    },
+    "tittle": "Activity Final Model"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "LONG",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe59"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe57"
+    },
+    "tittle": "Activity2087432780"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe5a"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe57"
+    },
+    "tittle": "Activity1203229766"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "LONG",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe5b"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe57"
+    },
+    "tittle": "Activity-74956027"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe5c"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe57"
+    },
+    "tittle": "Activity1459148647"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe63"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe61"
+    },
+    "tittle": "Activity388791618"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "LONG",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe64"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe61"
+    },
+    "tittle": "Activity-231122286"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe65"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe61"
+    },
+    "tittle": "Activity-1038542804"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "SHORT",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe66"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe61"
+    },
+    "tittle": "Activity450238987"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "MEDIUM",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe6c"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe6a"
+    },
+    "tittle": "Activity508638177"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "SHORT",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe6d"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe6a"
+    },
+    "tittle": "Activity-577546260"
+  },
+  {
+    "date": {
+      "$date": 1677974400000
+    },
+    "description": "Description",
+    "duration_time": "SHORT",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe6e"
+    },
+    "time": {
+      "$date": 75600000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe6a"
+    },
+    "tittle": "Activity-1517983244"
+  },
+  {
+    "date": {
+      "$date": 952128000000
+    },
+    "description": "Description",
+    "duration_time": "LONG",
+    "finished": false,
+    "_id": {
+      "$oid": "6404cd79d3aee33e0f33fe6f"
+    },
+    "time": {
+      "$date": 65520000
+    },
+    "user": {
+      "$oid": "6404cd79d3aee33e0f33fe6a"
+    },
+    "tittle": "Nuevo Título mod-288639170"
   }
-},{
-  "_id": {
-    "$oid": "6403b7fbb9d3c76271a93716"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1614988800000"
-    }
-  },
-  "finished": false,
-  "tittle": "Title without Description and Time",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
-  },
-  "description": "Nueva descripción mod394472134"
-},{
-  "_id": {
-    "$oid": "6403bc56a62cd87437d1c5d8"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1614988800000"
-    }
-  },
-  "finished": false,
-  "tittle": "New Tittle",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
-  },
-  "description": "Nueva descripción mod394472134"
-},{
-  "_id": {
-    "$oid": "6403c7ea1340177d1a800fc0"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677888000000"
-    }
-  },
-  "description": "Description",
-  "finished": true,
-  "time": {
-    "$date": {
-      "$numberLong": "84986971"
-    }
-  },
-  "tittle": "Tittle524703813",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
-  }
-},{
-  "_id": {
-    "$oid": "6403c8a8987c3f07ae83544a"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677888000000"
-    }
-  },
-  "description": "Description",
-  "finished": true,
-  "time": {
-    "$date": {
-      "$numberLong": "85176999"
-    }
-  },
-  "tittle": "Tittle1044260530",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
-  }
-},{
-  "_id": {
-    "$oid": "64040454232fb46890c6ea7b"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "14052764"
-    }
-  },
-  "tittle": "Tittle",
-  "user": {
-    "$oid": "6403bc482a489b7f6489409a"
-  }
-},{
-  "_id": {
-    "$oid": "640419518e457c7557bce16d"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description 1469804349 - Modificada",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "19425394"
-    }
-  },
-  "tittle": "Activity Final Model",
-  "user": {
-    "$oid": "640419518e457c7557bce16a"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe59"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "LONG",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545945"
-    }
-  },
-  "tittle": "Activity2087432780",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe57"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe5a"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545954"
-    }
-  },
-  "tittle": "Activity1203229766",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe57"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe5b"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "LONG",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545956"
-    }
-  },
-  "tittle": "Activity-74956027",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe57"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe5c"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545958"
-    }
-  },
-  "tittle": "Activity1459148647",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe57"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe63"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545965"
-    }
-  },
-  "tittle": "Activity388791618",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe61"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe64"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "LONG",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545967"
-    }
-  },
-  "tittle": "Activity-231122286",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe61"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe65"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545969"
-    }
-  },
-  "tittle": "Activity-1038542804",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe61"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe66"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "SHORT",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545971"
-    }
-  },
-  "tittle": "Activity450238987",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe61"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe6c"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "MEDIUM",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545976"
-    }
-  },
-  "tittle": "Activity508638177",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe6a"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe6d"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "SHORT",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545977"
-    }
-  },
-  "tittle": "Activity-577546260",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe6a"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe6e"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "1677974400000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "SHORT",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "75645609"
-    }
-  },
-  "tittle": "Activity-1517983244",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe6a"
-  }
-},{
-  "_id": {
-    "$oid": "6404cd79d3aee33e0f33fe6f"
-  },
-  "date": {
-    "$date": {
-      "$numberLong": "952128000000"
-    }
-  },
-  "description": "Description",
-  "duration_time": "LONG",
-  "finished": false,
-  "time": {
-    "$date": {
-      "$numberLong": "65545980"
-    }
-  },
-  "tittle": "Nuevo Título mod-288639170",
-  "user": {
-    "$oid": "6404cd79d3aee33e0f33fe6a"
-  }
-}]
+]

@@ -80,6 +80,10 @@ public class EventDAO {
         mongoClient.close();
     }
 
+    public FindIterable<Document> findAllDocs() {
+        return documentCollection.find();
+    }
+
     public Event findByEventId(ObjectId eventId) {
         return eventsCollection.find(eq("_id", eventId)).first();
     }

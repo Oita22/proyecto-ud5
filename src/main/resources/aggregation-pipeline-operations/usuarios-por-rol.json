@@ -1,7 +1,7 @@
 [
   {
     "userCount": 2,
-    "_id": "ADMIN"
+    "_id": "MODERATOR"
   },
   {
     "userCount": 7,
@@ -9,6 +9,6 @@
   },
   {
     "userCount": 2,
-    "_id": "MODERATOR"
+    "_id": "ADMIN"
   }
 ]

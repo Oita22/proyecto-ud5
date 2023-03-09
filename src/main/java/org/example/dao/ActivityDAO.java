@@ -80,6 +80,10 @@ public class ActivityDAO {
         mongoClient.close();
     }
 
+    public FindIterable<Document> findAllDocs() {
+        return documentCollection.find();
+    }
+
     // CONSULTAS
 
     /**
