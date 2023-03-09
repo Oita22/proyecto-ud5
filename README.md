@@ -2,7 +2,7 @@
 ### Iago Oitavén Fraga
 
 ## Modelo
-![model](https://user-images.githubusercontent.com/94072971/223782112-3239edc5-fe2a-485b-a460-32cda132fd7b.jpg)
+![model](https://user-images.githubusercontent.com/94072971/223995008-c828aef0-e4b6-45f9-b9dc-210920e3f1db.jpg)
 
 
 ## Consultas empleando filtros y proyecciones
