@@ -129,7 +129,7 @@ public class Main {
      * Operaciones de actualización
      */
     private static void updateOperations() {
-        System.out.println("-".repeat(200));
+        System.out.println("\n".repeat(4) + "-".repeat(200));
         System.out.println("\t".repeat(10) + "- ACTUALIZACIONES -\n\n");
 
         // Actualiza el título de una actividad con un ID específico:
@@ -212,6 +212,10 @@ public class Main {
      * Operaciones de agregación pipeline
      */
     private static void aggregationPipelineOperations() {
+        System.out.println("\n".repeat(4) + "-".repeat(200));
+        System.out.println("Operaciones de Agregación en .json en la carpeta " +
+                "resources/aggregation-pipeline-operations");
+
         eventDAO.getCountOfEventsCreatedGroupByUserId(); // 1 - Agrupación
         activityDAO.getCountActivitiesGroupByFinished(); // 2 - Agrupación
         userDAO.getUserCountPerBirthYear(); // 3 - Agrupación
@@ -222,7 +226,6 @@ public class Main {
         activityDAO.getActivitiesAndTotalCountByUser(); // 2 - Lookup
         eventDAO.getCountUserJoinedByEvent(); // 3 - Lookup
         userDAO.getUsersWithNoEvents(); // 4 - Lookup
-          //eventDAO.getEventAndUserListOrderByAsc(); // 5 - lookup
 
 
         eventDAO.getEventsInNextDays(30); // 1
@@ -241,10 +244,6 @@ public class Main {
 
         for (Object o : findIterable)
             System.out.println(o);
-    }
-
-    private static void load(int usersToGenerate) {
-        DataGenerator.generateData(usersToGenerate);
     }
 
     private static void drop() {

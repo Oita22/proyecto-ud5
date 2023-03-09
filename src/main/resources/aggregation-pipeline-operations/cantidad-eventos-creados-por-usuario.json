@@ -1,9 +1,5 @@
 [
   {
-    "count": 6,
-    "_id": null
-  },
-  {
     "count": 1,
     "_id": {
       "$oid": "640419518e457c7557bce16a"
@@ -14,6 +10,10 @@
     "_id": {
       "$oid": "6404cd79d3aee33e0f33fe57"
     }
+  },
+  {
+    "count": 6,
+    "_id": null
   },
   {
     "count": 2,

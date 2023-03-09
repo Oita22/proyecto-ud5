@@ -3,84 +3,6 @@
     "activities": [
       {
         "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "MEDIUM",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe6c"
-        },
-        "time": {
-          "$date": 65520000
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe6a"
-        },
-        "tittle": "Activity508638177"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "SHORT",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe6d"
-        },
-        "time": {
-          "$date": 65520000
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe6a"
-        },
-        "tittle": "Activity-577546260"
-      },
-      {
-        "date": {
-          "$date": 1677974400000
-        },
-        "description": "Description",
-        "duration_time": "SHORT",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe6e"
-        },
-        "time": {
-          "$date": 75600000
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe6a"
-        },
-        "tittle": "Activity-1517983244"
-      },
-      {
-        "date": {
-          "$date": 952128000000
-        },
-        "description": "Description",
-        "duration_time": "LONG",
-        "finished": false,
-        "_id": {
-          "$oid": "6404cd79d3aee33e0f33fe6f"
-        },
-        "time": {
-          "$date": 65520000
-        },
-        "user": {
-          "$oid": "6404cd79d3aee33e0f33fe6a"
-        },
-        "tittle": "Nuevo Título mod-288639170"
-      }
-    ],
-    "totalActivities": 4,
-    "user": "User533551192"
-  },
-  {
-    "activities": [
-      {
-        "date": {
           "$date": 1614816000000
         },
         "description": "Description",
@@ -186,6 +108,30 @@
         "date": {
           "$date": 1677974400000
         },
+        "description": "Description 1469804349 - Modificada",
+        "duration_time": "MEDIUM",
+        "finished": false,
+        "_id": {
+          "$oid": "640419518e457c7557bce16d"
+        },
+        "time": {
+          "$date": 19380000
+        },
+        "user": {
+          "$oid": "640419518e457c7557bce16a"
+        },
+        "tittle": "Activity Final Model"
+      }
+    ],
+    "totalActivities": 1,
+    "user": "User1629524261"
+  },
+  {
+    "activities": [
+      {
+        "date": {
+          "$date": 1677974400000
+        },
         "description": "Description",
         "duration_time": "LONG",
         "finished": false,
@@ -264,30 +210,6 @@
         "date": {
           "$date": 1677974400000
         },
-        "description": "Description 1469804349 - Modificada",
-        "duration_time": "MEDIUM",
-        "finished": false,
-        "_id": {
-          "$oid": "640419518e457c7557bce16d"
-        },
-        "time": {
-          "$date": 19380000
-        },
-        "user": {
-          "$oid": "640419518e457c7557bce16a"
-        },
-        "tittle": "Activity Final Model"
-      }
-    ],
-    "totalActivities": 1,
-    "user": "User1629524261"
-  },
-  {
-    "activities": [
-      {
-        "date": {
-          "$date": 1677974400000
-        },
         "description": "Description",
         "duration_time": "MEDIUM",
         "finished": false,
@@ -359,5 +281,83 @@
     ],
     "totalActivities": 4,
     "user": "User-648965095"
+  },
+  {
+    "activities": [
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "MEDIUM",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe6c"
+        },
+        "time": {
+          "$date": 65520000
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe6a"
+        },
+        "tittle": "Activity508638177"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "SHORT",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe6d"
+        },
+        "time": {
+          "$date": 65520000
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe6a"
+        },
+        "tittle": "Activity-577546260"
+      },
+      {
+        "date": {
+          "$date": 1677974400000
+        },
+        "description": "Description",
+        "duration_time": "SHORT",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe6e"
+        },
+        "time": {
+          "$date": 75600000
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe6a"
+        },
+        "tittle": "Activity-1517983244"
+      },
+      {
+        "date": {
+          "$date": 952128000000
+        },
+        "description": "Description",
+        "duration_time": "LONG",
+        "finished": false,
+        "_id": {
+          "$oid": "6404cd79d3aee33e0f33fe6f"
+        },
+        "time": {
+          "$date": 65520000
+        },
+        "user": {
+          "$oid": "6404cd79d3aee33e0f33fe6a"
+        },
+        "tittle": "Nuevo Título mod-288639170"
+      }
+    ],
+    "totalActivities": 4,
+    "user": "User533551192"
   }
 ]
