@@ -2,6 +2,10 @@
 ### Iago Oitavén Fraga
 
 ## Modelo
+### Relacional
+![uml](https://user-images.githubusercontent.com/94072971/224020140-ca183bc3-e10a-4bf5-b1c8-211bf007ec67.jpg)
+
+### MongoDB
 ![model](https://user-images.githubusercontent.com/94072971/223995008-c828aef0-e4b6-45f9-b9dc-210920e3f1db.jpg)
 
 
