@@ -45,6 +45,13 @@
    - **updateDateByEventId(ObjectId eventId, LocalDate date)** - Actualiza la fecha del Evento del que recibe su ID por parámetro
 
 ## Operaciones de agregación _pipeline_
+Comentar que como estas operaciones se realizan antes que las de actualización, los datos que quedan la en la base de datos no corresponden con los de las consultas. Está puesto en ese orden para que todas las agregaciones muestren resultados (ya que las actualizaciones son aleatorias).
+Para cambiar este orden, mover las 2 siguientes líneas en la clase Main, dejando `updateOperations()` primero:
+```java
+aggregationPipelineOperations();    // Línea 42
+updateOperations();                 // Línea 43
+```
+  
 ### 1. UserDAO
    - **getUserCountPerBirthYear()** - Obtiene la cantidad de usuarios por año de nacimiento (Agrupamiento)
    - **getUsersWithNoEvents()** - Obtiene la lista de usuarios que no tienen eventos asociados (Lookup - events)
